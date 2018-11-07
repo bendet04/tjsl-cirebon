@@ -1,6 +1,6 @@
 <!-- ajukan permohonana -->
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="<?php echo site_url('permohonan_tjsl'); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <button type="button" class="btn btn-block btn-secondary">Ajukan Permohonan</button>
     </a>
 </li>

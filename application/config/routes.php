@@ -78,5 +78,6 @@ Route::prefix(SITE_AREA, function(){
     Route::context('settings');
 });
 
+Route::any('permohonan_tjsl', 'tjsl', array('as' => 'permohonan_tjsl'));
 
 $route = Route::map($route);

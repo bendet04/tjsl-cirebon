@@ -62,7 +62,7 @@ class Home extends Home_Controller
 	{
 		$this->load->library('users/auth');
 		$this->set_current_user();
-		
+
 		if ($this->auth->is_logged_in()){
 			$user = $this->auth->user();
 			$role = $this->db->where('role_id', $user->role_id)->get('roles')->row();
@@ -77,8 +77,13 @@ class Home extends Home_Controller
 
 	}
 
+	public function permohonan_tjsl(){
+		Template::set_view('home/permohonan_tjsl');
+		Template::render();
+	}
 
-	
+
+
 	public function pilih_module()
 	{
 		$this->load->library('users/auth');
