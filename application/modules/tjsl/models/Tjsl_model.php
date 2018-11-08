@@ -2,7 +2,7 @@
 
 class Tjsl_model extends BF_Model {
 
-	protected $table			= "bis_aktivitas";
+	protected $table			= "";
 	protected $key				= "id";
 	protected $soft_deletes		= true;
 	protected $date_format		= "datetime";
@@ -18,13 +18,28 @@ class Tjsl_model extends BF_Model {
 		parent::__construct();
 	}
 
-    function get_program_prioritas(){
+    public function get_program_prioritas(){
         $this->db->select('*');
 		$this->db->from('program_prioritas');
 		$this->db->where('deleted = 0');
 		//Get contents
-		return $this->db->get()->result();
+		return $this->db->get()->result_array();
     }
+
+	public function get_sub_program_prioritas($id){
+		$sub_program="<option value='0'>--pilih--</option>";
+
+		$this->db->select('*');
+		$this->db->from('sub_program_prioritas');
+		$this->db->where('program_prioritas_id', $id);
+		$this->db->where('deleted = 0');
+		//Get contents
+		foreach ($this->db->get()->result_array() as $data ){
+			$sub_program.= "<option value='$data[sub_program_prioritas_id]'>$data[nama_program_prioritas]</option>";
+		}
+
+		return $sub_program;
+	}
 
 
 

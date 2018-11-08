@@ -1,6 +1,6 @@
  <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/jquery/jquery.min.js"></script>
+    
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -38,14 +38,14 @@
     <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
     <!-- slect 2 -->
     <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-    
+
 
     <script type="text/javascript">
-          
+
     // Toggle tranparent navbar when the user scrolls the page
 
       $(window).scroll(function() {
-        if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/ 
+        if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
         {
             $('.linked').addClass('activate');
             // $('.opaque-navbar').css("padding-top", "-20px");
@@ -106,7 +106,7 @@
         });
     });
     </script>
-    
+
     <?php echo Assets::js(); ?>
 
 </body>

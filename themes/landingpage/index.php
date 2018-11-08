@@ -8,7 +8,7 @@ echo theme_view('header');
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
-<div class="preloader">
+ <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
@@ -63,12 +63,12 @@ echo theme_view('header');
 
 
                     <?php echo theme_view('nav/home')?>
-                
+
 
             </ul>
         </div>
     </nav>
-</header>
+</header> 
 <!-- End Topbar header -->
 <!-- Left Sidebar - style you can find in sidebar.scss  -->
 <!-- ============================================================== -->

@@ -16,12 +16,18 @@ class Tjsl extends Home_Controller
     }
 
 
-    function index()
+    public function index()
     {
-    //    Template::set_view('home/permohonan_tjsl');
+        $program_prioritas = $this->tjsl_model->get_program_prioritas();
+        //die (json_encode($program_prioritas));
+        Template::set('program_prioritas', $program_prioritas);
 		Template::render();
     }
 
+    public function get_sub_program_prioritas(){
+        $id = $this->input->post('id');
+        echo $this->tjsl_model->get_sub_program_prioritas($id);
+    }
 }
 
 /* End of file Cabang_controller.php */
