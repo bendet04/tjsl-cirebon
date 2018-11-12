@@ -8,9 +8,9 @@
 <li>
     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Inforial</span></a>
     <ul aria-expanded="false" class="collapse">
-        <li><a href="ui-cards.html">Tentang kami</a></li>
-        <li><a href="ui-user-card.html">Berita</a></li>
-        <li><a href="ui-user-card.html">Info Program TJSL dan Forum TJSL</a></li>
+        <li><a href="<?php echo site_url('about-us'); ?>">Tentang kami</a></li>
+        <li><a href="<?php echo site_url('news'); ?>">Berita</a></li>
+        <li><a href="<?php echo site_url('inforial'); ?>">Info Program TJSL dan Forum TJSL</a></li>
     </ul>
 </li>
 <li class="two-column">

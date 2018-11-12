@@ -19,8 +19,10 @@ class Tjsl extends Home_Controller
     public function index()
     {
         $program_prioritas = $this->tjsl_model->get_program_prioritas();
+        $kecamatan = $this->tjsl_model->get_kecamatan();
         //die (json_encode($program_prioritas));
         Template::set('program_prioritas', $program_prioritas);
+        Template::set('kecamatan', $kecamatan);
 		Template::render();
     }
 
@@ -29,8 +31,13 @@ class Tjsl extends Home_Controller
         echo $this->tjsl_model->get_sub_program_prioritas($id);
     }
 
+    public function get_kelurahan(){
+        $id = $this->input->post('id');
+        echo $this->tjsl_model->get_kelurahan($id);
+    }
+
     public function simpan_pengajuan(){
-        
+
     }
 }
 

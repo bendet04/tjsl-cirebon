@@ -8,8 +8,8 @@ echo theme_view('header');
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
-<div class="preloader">
-    <svg class="circular" viewBox="25 25 50 50">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
     <!-- ============================================================== -->
@@ -38,7 +38,7 @@ echo theme_view('header');
                             <!-- dark Logo text -->
                             <!-- <img src="<?php //echo base_url('themes/landingpage/') ?>assets/images/new_logo.png" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo text -->
-                            <img style="height:50px; width:300px;" src="<?php echo base_url('themes/landingpage/') ?>assets/images/new_logo.png" class="light-logo" alt="homepage" />
+                            <img style="height:50px; width:300px;" src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" class="light-logo" alt="homepage" />
                         </span>
                     </a>
                 </div>

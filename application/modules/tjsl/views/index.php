@@ -17,6 +17,22 @@
             }
         });
 
+        $('#selectSubDistrict').change(function(){
+            var value = $(this).val();
+            console.log(value);
+            if (value>0){
+                $.ajax({
+                    type:"POST",
+                    data:{id:value},
+                    url: "<?php echo base_url('tjsl/get_kelurahan') ?>",
+                    success: function(res) {
+                        console.log(res);
+                        $("#SelectSubSubDistrict").html(res);
+                    }
+                });
+            }
+        });
+
     });
 </script>
 <section class="section section-blog">
@@ -149,7 +165,11 @@
                                                                 <input type="hidden" id="district_table" value="demand" />
                                                                 <select name="demand[sub_district_id]" class="chosen-select sub-district form-control" id="selectSubDistrict" data-rel="chosen">
                                                                     <option value="">-- Pilih Kecamatan --</option>
-                                                                    <option value="depok">-- Depok --</option>
+                                                                    <?php
+                                                                        foreach ($kecamatan as $kec) {
+                                                                            echo "<option value='$kec[id]'>$kec[nama]</option>";
+                                                                        }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -158,8 +178,7 @@
                                                             <div class="col-md-3"><div class="name">Kelurahan :</div></div>
                                                             <div class="col-md-5 sub-sub-district" style="margin-top:4px;margin-bottom:4px;">
                                                                 <select name="demand[sub_sub_district_id]" id="SelectSubSubDistrict" class="chosen-select form-control" data-rel="chosen">
-                                                                    <option value="">-- Pilih Kelurahan --</option>
-                                                                    <option value="depok">-- Pilih Kelurahan --</option>
+                                                                    <option value="">--pilih--</option>
                                                                 </select>
                                                             </div>
                                                         </div>

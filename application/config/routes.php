@@ -79,5 +79,9 @@ Route::prefix(SITE_AREA, function(){
 });
 
 Route::any('permohonan_tjsl', 'tjsl', array('as' => 'permohonan_tjsl'));
-
+Route::any('about-us', 'aboutus', array('as' => 'about-us'));
+Route::any('news', 'news', array('as' => 'news'));
+Route::any('news_detail/(:any)', 'news/read_more/$1', array('as' => 'news_detail'));
+Route::any('inforial', 'inforial', array('as' => 'inforial'));
+Route::any('inforial_detail/(:any)', 'news/read_more/$1', array('as' => 'inforial_detail'));
 $route = Route::map($route);

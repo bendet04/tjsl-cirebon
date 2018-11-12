@@ -35,4 +35,4 @@
 <![endif]-->
 </head>
 
-<body class=" fix-sidebar card-no-border logo-left">
+<body class="fix-sidebar card-no-border logo-left">
