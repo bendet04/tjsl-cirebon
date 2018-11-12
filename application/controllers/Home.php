@@ -67,7 +67,7 @@ class Home extends Home_Controller
 			$user = $this->auth->user();
 			$role = $this->db->where('role_id', $user->role_id)->get('roles')->row();
 			$target = $role->login_destination;
-			Template::redirect('member');
+			Template::redirect('skpd');
 		}else{
 
 		// Template::redirect('login');

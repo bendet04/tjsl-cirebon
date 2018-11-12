@@ -134,7 +134,7 @@ blockquote strong {
 }
 
 .simulasi{
-    
+
     margin-bottom: 20px;
     color: #FFF;
     font-size: 60px;
@@ -143,7 +143,7 @@ blockquote strong {
     font-weight: 900;
 }
 .banner-tulisan{
-    
+
     margin-bottom: 0px;
     color: #FFF;
     font-size: 40px;
@@ -2075,7 +2075,7 @@ form label {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
-    background-color: rgba(120, 130, 140, 0.13);
+
 }
 
 .topbar ul.dropdown-user li .dw-user-box {
@@ -2136,7 +2136,7 @@ form label {
   background: #3fbbc0;
   padding: 50px 0;
   position: relative;
-  z-index: 10; 
+  z-index: 10;
 }
 
 .footer-light-green {
@@ -2146,7 +2146,7 @@ form label {
   padding-top: 20px;
   padding-bottom: 20px;
   position: relative;
-  z-index: 10; 
+  z-index: 10;
 }
 
 .call-to-action span {
@@ -7973,6 +7973,7 @@ a.mytooltip {
     .topbar {
         position: fixed;
         width: 100%;
+    
     }
 
     .topbar .top-navbar {

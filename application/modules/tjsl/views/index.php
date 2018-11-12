@@ -23,7 +23,7 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="row">
+                <div class="row white-space">
                     <div class="col-md-12">
                         <div class="tabbable" style="margin-bottom:50px;">
                             <ul class="nav nav-tabs padding-12 tab-color-blue background-blue">
@@ -96,9 +96,7 @@
                                                         <div class="col-md-3"><div class="name">Dokumen-Dokumen :</div></div>
                                                         <div class="col-md-9">
 
-                                                            <a class="col-sm-9 add_nested_fields" style="margin-top:5px;" data-association="demand_documents" data-blueprint-id="demand_documents_fields_blueprint" href="javascript:void(0)">
-                                                                <i class="icon-plus"></i> + Tambah Document
-                                                            </a>                        </div>
+                                                            <input class="form-dokumen" data-id="1" name="files[]" multiple="multiple" type="file">                      </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,7 +148,8 @@
                                                             <div class="col-md-9" style="margin-top:4px;margin-bottom:4px;">
                                                                 <input type="hidden" id="district_table" value="demand" />
                                                                 <select name="demand[sub_district_id]" class="chosen-select sub-district form-control" id="selectSubDistrict" data-rel="chosen">
-
+                                                                    <option value="">-- Pilih Kecamatan --</option>
+                                                                    <option value="depok">-- Depok --</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -160,6 +159,7 @@
                                                             <div class="col-md-5 sub-sub-district" style="margin-top:4px;margin-bottom:4px;">
                                                                 <select name="demand[sub_sub_district_id]" id="SelectSubSubDistrict" class="chosen-select form-control" data-rel="chosen">
                                                                     <option value="">-- Pilih Kelurahan --</option>
+                                                                    <option value="depok">-- Pilih Kelurahan --</option>
                                                                 </select>
                                                             </div>
                                                         </div>

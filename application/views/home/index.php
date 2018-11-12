@@ -220,36 +220,6 @@
         <!-- End Row -->
     </div>
     <!-- Logo  -->
-    <div class="row light-green" >
-        <div class="container">
-            <div class="col-md-12">
-                <div class="text-center m-b-40">
-                    <h2 class="banner-tulisan"> Mitra Kami </h2>
-                </div>
-                <!-- <div class="max-width"> -->
-                <div class="row ">
-                    <div class="col-md-3 text-center">
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" width="150">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" width="150">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" width="150">
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" width="150">
-                    </div>
-                </div>
-                <!-- </div> -->
-            </div>
-        </div>
-    </div>
-
-
-    <br/>
-    <br/>
-    <br/>
 
 
 

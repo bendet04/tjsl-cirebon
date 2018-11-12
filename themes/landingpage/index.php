@@ -8,7 +8,7 @@ echo theme_view('header');
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
- <div class="preloader">
+<div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
@@ -30,31 +30,30 @@ echo theme_view('header');
                         <!-- Logo icon --><b>
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                        <!-- Light Logo icon -->
-                        <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                    </b>
-                    <!--End Logo icon -->
-                    <!-- Logo text --><span>
-                    <!-- dark Logo text -->
-                    <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                    <!-- Light Logo text -->
-                    <img src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                </span>
-            </a>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
 
-            <ul class="navbar-nav mr-auto mt-md-0">
-
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                            <!-- dark Logo text -->
+                            <!-- <img src="<?php //echo base_url('themes/landingpage/') ?>assets/images/new_logo.png" alt="homepage" class="dark-logo" /> -->
+                            <!-- Light Logo text -->
+                            <img style="height:50px; width:300px;" src="<?php echo base_url('themes/landingpage/') ?>assets/images/new_logo.png" class="light-logo" alt="homepage" />
+                        </span>
+                    </a>
+                </div>
                 <!-- ============================================================== -->
-                <!-- buat menu samping logo -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+
+                    <ul class="navbar-nav mr-auto mt-md-0">
+
+                        <!-- ============================================================== -->
+                        <!-- buat menu samping logo -->
                 <!-- ============================================================== -->
             </ul>
             <!-- ============================================================== -->
@@ -62,13 +61,13 @@ echo theme_view('header');
                 <!-- navbar -->
 
 
-                    <?php echo theme_view('nav/home')?>
+                <?php echo theme_view('nav/home')?>
 
 
             </ul>
         </div>
     </nav>
-</header> 
+</header>
 <!-- End Topbar header -->
 <!-- Left Sidebar - style you can find in sidebar.scss  -->
 <!-- ============================================================== -->
@@ -81,7 +80,7 @@ echo theme_view('header');
                 <!-- sidebar / menu -->
 
 
-                    <?php echo theme_view('sidebar/home')?>
+                <?php echo theme_view('sidebar/home')?>
 
 
             </ul>
@@ -103,17 +102,6 @@ echo theme_view('header');
         <?php echo isset($content) ? $content : Template::content(); ?>
     </div>
 
-    <div class="row">
-        <div class="col-md-12 call-to-action footer-light-green">
-            <div class="fix-width">
-                <div class="row">
-                    <div class="col-md-6 m-t-20 m-b-10"><span>Dasar Hukum</span></div>
-                    <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 13 Tahun 2013 </a></div>
-                    <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 354 Tahun 2014 </a></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ============================================================== -->
     <!-- End PAge Content -->
     <!-- ============================================================== -->
@@ -122,6 +110,17 @@ echo theme_view('header');
     <a class="bt-top btn btn-circle btn-lg btn-info" href="#top"><i class="ti-arrow-up"></i></a>
     <footer class="footer row">
         <div class="fix-width">
+            <div class="col-md-12 call-to-action">
+                <br/>
+                <br/>
+                <div class="fix-width">
+                    <div class="row">
+                        <div class="col-md-6 m-t-20 m-b-10"><span>Dasar Hukum</span></div>
+                        <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 13 Tahun 2013 </a></div>
+                        <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 354 Tahun 2014 </a></div>
+                    </div>
+                </div>
+            </div>
             <div class="clearfix"></div>
             <div class="col-md-12 sub-footer">
                 <span>Copyright 2018. All Rights Reserved by <a class="text-white" href="#" target="_blank">TJSL Cirebon

@@ -28,6 +28,10 @@ class Tjsl extends Home_Controller
         $id = $this->input->post('id');
         echo $this->tjsl_model->get_sub_program_prioritas($id);
     }
+
+    public function simpan_pengajuan(){
+        
+    }
 }
 
 /* End of file Cabang_controller.php */
