@@ -79,9 +79,16 @@ Route::prefix(SITE_AREA, function(){
 });
 
 Route::any('permohonan_tjsl', 'tjsl', array('as' => 'permohonan_tjsl'));
+Route::any('simpan_pengajuan', 'tjsl/simpan_pengajuan', array('as' => 'simpan_pengajuan'));
 Route::any('about-us', 'aboutus', array('as' => 'about-us'));
 Route::any('news', 'news', array('as' => 'news'));
 Route::any('news_detail/(:any)', 'news/read_more/$1', array('as' => 'news_detail'));
 Route::any('inforial', 'inforial', array('as' => 'inforial'));
 Route::any('inforial_detail/(:any)', 'news/read_more/$1', array('as' => 'inforial_detail'));
+Route::any('rekapitulasi', 'rekapitulasi', array('as' => 'rekapitulasi'));
+Route::any('get_data_rekapitulasi/(:any)', 'rekapitulasi/get_data_rekapitulasi/$1', array('as' => 'get_data_rekapitulasi'));
+Route::any('panduan_masyarakat', 'panduan/masyarakat', array('as' => 'panduan_masyarakat'));
+Route::any('panduan_perusahaan', 'panduan/perusahaan', array('as' => 'panduan_perusahaan'));
+Route::any('perusahaan', 'perusahaan', array('as' => 'perusahaan'));
+Route::any('perusahaan/perusahaan_json', 'perusahaan/perusahaan_json', array('as' => 'perusahaan/perusahaan_json'));
 $route = Route::map($route);

@@ -1,9 +1,9 @@
 <section class="section section-blog">
     <div class="container">
         <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="row white-space">
-                    <img class="center" src="http://jabarekspres.com/wp-content/uploads/2018/05/TJSL-Kota-Bandung.jpg" alt="">
+            <div class="card" style="margin-bottom:10px">
+                <div class="card-body" align="center">
+                    <img align="center" src="http://jabarekspres.com/wp-content/uploads/2018/05/TJSL-Kota-Bandung.jpg" alt="">
                     <div class="row line-fluid">
                         <div class="col-md-12 left">
                             <h2 align="center" style="padding-top: 20px;" class="line-bottom">Tentang Kami</h2>

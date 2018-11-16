@@ -18,21 +18,6 @@ class Tjsl_model extends BF_Model {
 		parent::__construct();
 	}
 
-	public function get_kode(){
-        $q = $this->db->query("SELECT MAX(RIGHT(kode_permohonan,4)) AS kd_max FROM permohonan_tjsl WHERE DATE(created_on)=CURDATE()");
-        $kd = "";
-        if($q->num_rows()>0){
-            foreach($q->result() as $k){
-                $tmp = ((int)$k->kd_max)+1;
-                $kd = sprintf("%04s", $tmp);
-            }
-        }else{
-            $kd = "0001";
-        }
-        date_default_timezone_set('Asia/Jakarta');
-        return date('dmy').$kd;
-    }
-
     public function get_program_prioritas(){
         $this->db->select('*');
 		$this->db->from('program_prioritas');
@@ -76,29 +61,6 @@ class Tjsl_model extends BF_Model {
 
 		return $kelurahan;
 	}
-
-	public function upload_file(){
-
-        $config['upload_path'] = './uploads/files';
-        $config['allowed_types'] = 'jpg|png|jpeg|xls|doc|pdf|docs';
-        $config['max_size']  = '2048';
-        $config['remove_space'] = TRUE;
-
-        $this->load->library('upload', $config); // Load konfigurasi uploadnya
-        if($this->upload->do_upload('files')){ // Lakukan upload dan Cek jika proses upload berhasil
-            // Jika berhasil :
-            $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-            return $return;
-        }else{
-            // Jika gagal :
-            $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-            return $return;
-        }
-    }
-
-    public function save($upload){
-        $this->db->insert('permohonan_tjsl', $upload);
-    }
 
 
 

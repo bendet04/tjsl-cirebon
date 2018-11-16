@@ -174,54 +174,21 @@
         <br/><br/><br/><br/>
     </div>
     <!-- ///// -->
-    <div class="container terasi">
-        <div class="text-center m-b-20">
-            <!--<small class="text-info">ALMOST COVERED EVERYTHING</small>-->
-            <h2 class="display-7">Berita Terbaru</h2>
-        </div>
-        <br/>
-        <!-- Row -->
-        <!-- <div class="row"> -->
-        <div class="col-12">
-            <!-- Row -->
-            <div class="row">
-                <!-- column -->
-                <div class="col-lg-6 col-md-6">
-                    <!-- Card -->
-                    <div class="card">
-                        <img class="card-img-top img-responsive" src="<?php echo base_url('themes/landingpage/') ?>assets/images/big/img1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- column -->
-                <!-- column -->
-                <div class="col-lg-6 col-md-6">
-                    <!-- Card -->
-                    <div class="card">
-                        <img class="card-img-top img-responsive" src="<?php echo base_url('themes/landingpage/') ?>assets/images/big/img2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- column -->
-            </div>
-            <!-- Row -->
-        </div>
-        <!-- </div> -->
-        <!-- End Row -->
-    </div>
+    
     <!-- Logo  -->
-
-
-
-
 </div>
+<a class="bt-top btn btn-circle btn-lg btn-info" href="#top"><i class="ti-arrow-up"></i></a>
+<footer class="footer">
+    <div class="fix-width">
+        <div class="col-md-12 call-to-action">
+            <br/>
+            <br/>
+            <div class="fix-width">
+                <div class="row">
+                    <div class="col-md-6 m-t-20 m-b-10"><span>Dasar Hukum</span></div>
+                    <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 13 Tahun 2013 </a></div>
+                    <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 354 Tahun 2014 </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>

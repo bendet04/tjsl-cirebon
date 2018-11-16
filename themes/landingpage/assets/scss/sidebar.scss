@@ -67,7 +67,7 @@ sidebar navigation
             ul {
                 padding:15px;
                 top: 53px;
-                
+
                 li a {
                     padding:7px 10px;
                 }
@@ -78,12 +78,12 @@ sidebar navigation
             }
             &.nav-small-cap,
             &.nav-devider {
-               display: none; 
-            }    
+               display: none;
+            }
         }
     }
     > ul > li > a {
-        
+
         i {
             width: 27px;
             font-size: 19px;
@@ -102,7 +102,7 @@ sidebar navigation
         }
     }
     > ul > li {
-        
+
         &.active > a {
             color: $themecolor;
             font-weight: 500;
@@ -164,7 +164,7 @@ When click on sidebar toggler and also for tablet
 *****************/
 
 @media(min-width:768px) {
-    
+
     .sidebar-nav > ul > li {
         float:left;
         &:hover > a,
@@ -175,7 +175,7 @@ When click on sidebar toggler and also for tablet
     .sidebar-nav > ul > li:last-child ul {
         right: 0px;
     }
-    
+
     .sidebar-nav #sidebarnav li.two-column > ul {
         width: 400px;
         li {
@@ -192,7 +192,7 @@ When click on sidebar toggler and also for tablet
             display: inline-block;
         }
     }
-    
+
     .sidebar-nav #sidebarnav > li > a.has-arrow:after {
         display: none;
     }
@@ -248,8 +248,8 @@ When click on sidebar toggler and also for tablet
                 padding: 10px 15px 10px 35px;
             }
         }
-            
-    } 
+
+    }
     .sidebar-nav #sidebarnav > li > a.has-arrow:after {
         display: block;
     }

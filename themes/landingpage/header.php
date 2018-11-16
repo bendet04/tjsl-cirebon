@@ -14,8 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link id="theme" href="<?php echo base_url('themes/landingpage/') ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- morris CSS -->
-    <link id="theme" href="<?php echo base_url('themes/landingpage/') ?>assets/plugins/morrisjs/morris.css" rel="stylesheet">
-    <!-- Popup CSS -->
+
     <link id="theme" href="<?php echo base_url('themes/landingpage/') ?>assets/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
 
     <!-- select 2 -->
@@ -35,4 +34,4 @@
 <![endif]-->
 </head>
 
-<body class="fix-sidebar card-no-border logo-left">
+<body class="fix-header card-no-border">

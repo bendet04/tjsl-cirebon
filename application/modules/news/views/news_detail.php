@@ -1,8 +1,8 @@
 <section class="section section-blog">
     <div class="container">
         <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="row white-space">
+            <div class="card" style="margin-bottom:10px">
+                <div class="card-body">
 			<div class="row m-space image-fw">
 				<div class="col-md-12 crop-image">
 					<img src="<?php  echo $news_detail->poto ?>" alt="">

@@ -19,74 +19,32 @@ echo theme_view('header');
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light opaque-navbar">
 
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <!-- Dark Logo icon -->
-
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span>
-                            <!-- dark Logo text -->
-                            <!-- <img src="<?php //echo base_url('themes/landingpage/') ?>assets/images/new_logo.png" alt="homepage" class="dark-logo" /> -->
-                            <!-- Light Logo text -->
-                            <img style="height:50px; width:300px;" src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" class="light-logo" alt="homepage" />
-                        </span>
-                    </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-
-                    <ul class="navbar-nav mr-auto mt-md-0">
-
-                        <!-- ============================================================== -->
-                        <!-- buat menu samping logo -->
-                <!-- ============================================================== -->
-            </ul>
-            <!-- ============================================================== -->
-            <ul class="navbar-nav my-lg-0">
-                <!-- navbar -->
-
-
-                <?php echo theme_view('nav/home')?>
-
-
-            </ul>
-        </div>
-    </nav>
-</header>
 <!-- End Topbar header -->
 <!-- Left Sidebar - style you can find in sidebar.scss  -->
 <!-- ============================================================== -->
 <aside class="left-sidebar">
     <!-- Sidebar scroll-->
-    <div class="scroll-sidebar">
+
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav">
+
+            <ul id="sidebarnav" style="display: flex; justify-content: center; align-items: center">
                 <!-- sidebar / menu -->
 
+                <a href="<?php echo base_url();?>" style="float: left; padding:10px" >
+                    <span>
+                        <img style="height:50px; width:300px;"  src="<?php echo base_url('themes/landingpage/') ?>assets/images/logo.png" class="light-logo" alt="homepage" />
+                    </span>
+                </a>
 
                 <?php echo theme_view('sidebar/home')?>
 
-
+                
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
-    </div>
+
     <!-- End Sidebar scroll-->
 </aside>
 <!-- Page wrapper  -->
@@ -107,32 +65,13 @@ echo theme_view('header');
     <!-- ============================================================== -->
     <!-- footer -->
     <!-- ============================================================== -->
-    <a class="bt-top btn btn-circle btn-lg btn-info" href="#top"><i class="ti-arrow-up"></i></a>
-    <footer class="footer row">
-        <div class="fix-width">
-            <div class="col-md-12 call-to-action">
-                <br/>
-                <br/>
-                <div class="fix-width">
-                    <div class="row">
-                        <div class="col-md-6 m-t-20 m-b-10"><span>Dasar Hukum</span></div>
-                        <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 13 Tahun 2013 </a></div>
-                        <div class="col-md-3 align-self-center text-right"><a href="https://themeforest.net/item/admin-press-the-ultimate-powerful-bootstrap-4-admin-template/20470856?ref=MARUTI" target="_blank" class="btn btn-outline btn-rounded btn-default buy-btn m-t-10 m-b-10">Download Perda No. 354 Tahun 2014 </a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-12 sub-footer">
-                <span>Copyright 2018. All Rights Reserved by <a class="text-white" href="#" target="_blank">TJSL Cirebon
-                </a></span>
-                <span class="pull-right">Design & Developed by <a class="text-white" href="http://themedesigner.in" target="_blank">TJSL Cirebon</a></span>
-            </div>
-            <!-- </div> -->
-        </div>
+    <footer id="footer" class="footer" align="center">
+        <br>
+        <span>Copyright 2018. All Rights Reserved by <a class="text-white" href="#" target="_blank">TJSL Cirebon</a></span>
     </footer>
     <!-- End footer -->
 
-</div>
+
 </div>
 <!-- ============================================================== -->
 <!-- End Page wrapper  -->
@@ -145,3 +84,16 @@ echo theme_view('header');
 <?php
 echo theme_view('footer');
 ?>
+<script>
+
+$(document).ready(function() {
+
+ var docHeight = $(window).height();
+ var footerHeight = $('#footer').height();
+ var footerTop = $('#footer').position().top + footerHeight;
+
+ if (footerTop < docHeight) {
+  $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+ }
+});
+</script>

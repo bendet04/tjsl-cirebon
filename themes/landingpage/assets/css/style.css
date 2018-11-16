@@ -2528,15 +2528,15 @@ ul#themecolors li a.working:before {
 }
 
 .footer {
-   /* bottom: 0;
+   bottom: 0;
     color: #67757c;
     left: 0px;
     text-align: center;
     padding: 17px 15px;
-    position: absolute;
+    /* position: absolute; */
     right: 0;
-    border-top: 1px solid rgba(120, 130, 140, 0.13);
-    background: #ffffff;*/
+    /* border-top: 1px solid rgba(120, 130, 140, 0.13); */
+    background: #ffffff;
     padding: 0px 0 30px;
     background: #2f3d4a;
     color: #8f9aa5;
@@ -6373,7 +6373,7 @@ a.mytooltip {
     width: 100%;
     top: 0px;
     z-index: 20;
-    padding: 60px 15px 0px;
+    padding: 0px 0px 0px 0px;
     background: #fff;
     -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
@@ -6593,7 +6593,7 @@ a.mytooltip {
         display: none;
         height: 100%;
         width: 260px;
-        padding: 60px 0 0 0px;
+        padding: 0px 0 0 0px;
         overflow: auto;
     }
 
@@ -9672,4 +9672,12 @@ input[type=checkbox]:not(:disabled).tabbed:focus~.lever:after,input[type=checkbo
     position: relative;
     background: #ffffff;
     min-height: 250px;
+}
+@media screen and (max-width:768px) {
+	.table-responsive {
+		overflow: auto;
+	}
+}
+.table-responsive {
+	overflow: hidden;
 }
