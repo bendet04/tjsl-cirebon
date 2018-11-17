@@ -36,6 +36,11 @@ class Tjsl extends Home_Controller
         echo $this->tjsl_model->get_kelurahan($id);
     }
 
+    public function get_perusahaan(){
+        $id = $this->input->post('id');
+        echo $this->tjsl_model->get_perusahaan($id);
+    }
+
     public function simpan_pengajuan(){
 
         $program_id = $this->input->post('program');
@@ -51,7 +56,7 @@ class Tjsl extends Home_Controller
         $alamat_pj = $this->input->post('alamat_pj');
         $kecamatan_pj = $this->input->post('selectSubDistrict');
         $kelurahan_pj = $this->input->post('SelectSubSubDistrict');
-        $perusahaan_id = $this->input->post('SelectCompanyType');
+        $perusahaan_id = $this->input->post('perusahaan');
 
         $data = array();
 

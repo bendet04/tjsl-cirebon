@@ -36,7 +36,7 @@ class Perusahaan extends Home_Controller
         foreach($query->result_array() as $row)
         {
             $nestedData = array();
-
+            if($row['status']==0) $row['status'] = 'Belum TJSL'; else $row['status'] = 'Sudah TJSL';
             $nestedData[]	= $row['nomor'];
             $nestedData[]	= $row['nama_perusahaan'];
             $nestedData[]	= $row['nama_tipe_perusahaan'];

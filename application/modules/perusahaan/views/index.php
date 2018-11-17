@@ -2,15 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card" style="margin-bottom:10px">
+                <div class="card" style=" margin-bottom:10px; margin-top:20px">
                     <div class="card-body">
                         <div class="col-md-12 left">
                             <h2>Daftar Perusahaan</h2>
                             <p>Kota Cirebon</p>
-                            <div class='table-responsive m-t-40'>
+                            <div class='table-responsive'>
                                 <link rel="stylesheet" href="<?php  echo base_url('themes/landingpage/'); ?>assets/datatables/css/dataTables.bootstrap.css"/>
                                 <link rel="stylesheet" href="<?php  echo base_url('themes/landingpage/'); ?>assets/datatables/css/bootstrap.min.css"/>
-                                <table id="my-grid" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                <table id="my-grid" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="99%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -69,7 +69,7 @@
 				type: "post",
 				error: function(){
 					$(".my-grid-error").html("");
-					$("#my-grid").append('<tbody class="my-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+					$("#my-grid").append('<tbody class="my-grid-error"><tr><th colspan="7">No data found in the server</th></tr></tbody>');
 					$("#my-grid_processing").css("display","none");
 				}
 			}

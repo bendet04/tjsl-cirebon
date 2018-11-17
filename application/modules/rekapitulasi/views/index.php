@@ -2,11 +2,11 @@
 <section class="section section-blog">
     <div class="container">
         <div class="panel panel-default">
-            <div class="card" style="margin-bottom:10px">
+            <div class="card" style="margin-bottom:10px; margin-top:20px">
                 <div class="card-body">
 
                     <h2>Daftar Rekapitulasi TJSL Kota Bandung</h2>
-                    <div id="container" style="width: 100%; margin-top: 40px;">
+                    <div  style="width: 100%; margin-top: 40px;">
                         <div id="canvas"></div>
                     </div>
 

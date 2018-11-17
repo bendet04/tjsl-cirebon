@@ -1,7 +1,7 @@
 <section class="section section-blog">
     <div class="container">
         <div class="panel panel-default">
-            <div class="card" style="margin-bottom:10px">
+            <div class="card" style="margin-bottom:10px; margin-top:20px">
                 <div class="card-body" align="center">
                     <img align="center" src="http://jabarekspres.com/wp-content/uploads/2018/05/TJSL-Kota-Bandung.jpg" alt="">
                     <div class="row line-fluid">
@@ -39,6 +39,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<div class="card" style="margin-bottom:10px">
+				<div class="card" style="margin-bottom:10px; margin-top:20px">
 					<div class="card-body">
                         <div class="row">
 							<div class="col-md-12">
@@ -29,7 +29,7 @@
 							<div class="col-12">
 								<div id="c_panduan">
 									<div class="panduan_title">Berikut adalah alur penggunaan aplikasi TJSL sebagai Masyarakat</div>
-
+									<br>
 										<h4 class="card-title">1. Akses Aplikasi</h4>
 										<p>
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare interdum leo, eu

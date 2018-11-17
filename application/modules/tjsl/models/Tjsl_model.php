@@ -42,7 +42,7 @@ class Tjsl_model extends BF_Model {
     }
 
 	public function get_sub_program_prioritas($id){
-		$sub_program="<option value='0'>--pilih--</option>";
+		$sub_program="<option value=''>--pilih--</option>";
 
 		$this->db->select('*');
 		$this->db->from('sub_program_prioritas');
@@ -64,7 +64,7 @@ class Tjsl_model extends BF_Model {
 	}
 
 	public function get_kelurahan($id){
-		$kelurahan="<option value='0'>--pilih--</option>";
+		$kelurahan="<option value=''>--pilih--</option>";
 
 		$this->db->select('*');
 		$this->db->from('Kelurahan');
@@ -75,6 +75,20 @@ class Tjsl_model extends BF_Model {
 		}
 
 		return $kelurahan;
+	}
+
+	public function get_perusahaan($id){
+		$perusahaan="<option value=''>--pilih--</option>";
+
+		$this->db->select('*');
+		$this->db->from('perusahaan');
+		$this->db->where('tipe_id', $id);
+		//Get contents
+		foreach ($this->db->get()->result_array() as $data ){
+			$perusahaan.= "<option value='$data[perusahaan_id]'>$data[nama_perusahaan]</option>";
+		}
+
+		return $perusahaan;
 	}
 
 	public function upload_file(){
