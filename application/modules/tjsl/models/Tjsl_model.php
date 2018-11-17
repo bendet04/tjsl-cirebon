@@ -67,7 +67,7 @@ class Tjsl_model extends BF_Model {
 		$kelurahan="<option value=''>--pilih--</option>";
 
 		$this->db->select('*');
-		$this->db->from('Kelurahan');
+		$this->db->from('kelurahan');
 		$this->db->where('id_kec', $id);
 		//Get contents
 		foreach ($this->db->get()->result_array() as $data ){
