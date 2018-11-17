@@ -7,7 +7,7 @@
                         <div class="col-md-12 left">
                             <h2>Daftar Perusahaan</h2>
                             <p>Kota Cirebon</p>
-                            <div class='table-responsive'>
+                            <div class='table-responsive m-t-40'>
                                 <link rel="stylesheet" href="<?php  echo base_url('themes/landingpage/'); ?>assets/datatables/css/dataTables.bootstrap.css"/>
                                 <link rel="stylesheet" href="<?php  echo base_url('themes/landingpage/'); ?>assets/datatables/css/bootstrap.min.css"/>
                                 <table id="my-grid" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="99%">

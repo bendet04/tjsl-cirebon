@@ -23,7 +23,8 @@
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#identitas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Identitas</span></a> </li>
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#lembaga" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Lembaga Yang Dituju</span></a> </li>
                                     </ul>
-                                        <?php echo form_open("simpan_pengajuan", array('enctype'=>'multipart/form-data')); ?>                                        <div class="tab-content tabcontent-border">
+                                        <?php echo form_open("simpan_pengajuan", array('enctype'=>'multipart/form-data')); ?>
+                                         <div class="tab-content tabcontent-border">
                                             <br>
                                             <div id="program" class="tab-pane in active">
                                                 <div class="row">
@@ -56,8 +57,7 @@
                                                             <div class="col-md-12" style="margin-bottom:10px;">
                                                                 <div class="col-md-3"><div class="name">Deskripsi :</div></div>
                                                                 <div class="col-md-9">
-                                                                    <textarea class="form-control" placeholder="Deskripsi" name="deskripsi" id="deskripsi" required>
-                                                                </textarea></div>
+                                                                    <textarea class="form-control" placeholder="Deskripsi" name="deskripsi" id="deskripsi" required></textarea></div>
                                                             </div>
 
                                                             <div class="col-md-12" style="margin-bottom:10px;">
@@ -73,11 +73,11 @@
 
                                                             <div class="col-md-12" style="margin-bottom:10px;">
                                                                 <div class="col-md-3"><div class="name">Nilai RAB :</div></div>
-                                                                <div class="col-md-9"><input class="form-control" placeholder="Nilai RAB" type="text" name="nilai_rab" id="nilai_rab" required/></div>
+                                                                <div class="col-md-9"><input class="form-control"  placeholder="Nilai RAB" type="number" name="nilai_rab" id="nilai_rab" required/></div>
                                                             </div>
 
                                                             <div class="col-md-12" style="margin-bottom:10px;">
-                                                                <div class="col-md-3"><div class="name">Dokumen-Dokumen :</div></div>
+                                                                <div class="col-md-3"><div class="name">Dokumen :</div></div>
                                                                 <div class="col-md-9">
                                                                     <input class="form-dokumen" data-id="1" name="files" type="file" required>                      </div>
                                                                 </div>
@@ -107,12 +107,12 @@
 
                                                                 <div class="col-md-12" style="margin-bottom:10px;">
                                                                     <div class="col-md-3"><div class="name">NIK Penanggung Jawab:</div></div>
-                                                                    <div class="col-md-9"><input class="form-control" placeholder="NIK Penanggung Jawab" type="text" name="nik_pj" id="nik_pj" required /></div>
+                                                                    <div class="col-md-9"><input class="form-control" placeholder="NIK Penanggung Jawab" type="number" name="nik_pj" id="nik_pj" required /></div>
                                                                 </div>
 
                                                                 <div class="col-md-12" style="margin-bottom:10px;">
                                                                     <div class="col-md-3"><div class="name">Nomor HP :</div></div>
-                                                                    <div class="col-md-9"><input class="form-control" placeholder="Nomor HP" type="text" name="no_pj" id="no_pj" required /></div>
+                                                                    <div class="col-md-9"><input class="form-control" placeholder="Nomor HP" type="number" name="no_pj" id="no_pj" required /></div>
                                                                 </div>
 
                                                                 <div class="col-md-12" style="margin-bottom:10px;">
@@ -122,15 +122,14 @@
 
                                                                 <div class="col-md-12" style="margin-bottom:10px;">
                                                                     <div class="col-md-3"><div class="name">Alamat :</div></div>
-                                                                    <div class="col-md-9"><textarea class="form-control" placeholder="Alamat" name="alamat_pj" id="alamat_pj" required>
-                                                                    </textarea></div>
+                                                                    <div class="col-md-9"><textarea class="form-control" placeholder="Alamat" name="alamat_pj" id="alamat_pj" required></textarea></div>
                                                                 </div>
 
                                                                 <div class="col-md-12" style="margin-bottom:10px;">
                                                                     <div class="col-md-3"><div class="name">Kecamatan :</div></div>
                                                                     <div class="col-md-9" style="margin-top:4px;margin-bottom:4px;">
 
-                                                                        <select  name="selectSubDistrict" class="chosen-select sub-district form-control" id="selectSubDistrict" data-rel="chosen" required>
+                                                                        <select  name="selectSubDistrict" class="chosen-select form-control" id="selectSubDistrict" required>
                                                                             <option value="">-- Pilih Kecamatan --</option>
                                                                             <?php
                                                                             foreach ($kecamatan as $kec) {
