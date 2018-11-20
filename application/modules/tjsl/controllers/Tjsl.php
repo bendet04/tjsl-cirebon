@@ -118,5 +118,6 @@ class Tjsl extends Home_Controller
             ),
         );
     }
+}
 
 /* End of file Cabang_controller.php */
