@@ -117,7 +117,7 @@ class Tjsl extends Home_Controller
                 true
             ),
         );
-        $this->emailer->send($data)
+        $this->emailer->send($data){
             Template::set_message(lang('us_reset_pass_message'), 'success');
         } else {
             Template::set_message(lang('us_reset_pass_error') . $this->emailer->error, 'error');
