@@ -117,6 +117,7 @@ class Tjsl extends Home_Controller
                 true
             ),
         );
+        $this->emailer->send($data);
     }
 }
 
