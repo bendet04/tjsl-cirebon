@@ -94,7 +94,7 @@ class Tjsl_model extends BF_Model {
 	public function upload_file(){
 
         $config['upload_path'] = './uploads/files';
-        $config['allowed_types'] = 'jpg|png|jpeg|xls|doc|pdf|docs';
+        $config['allowed_types'] = 'jpg|png|jpeg|xls|doc|pdf|docx';
         $config['max_size']  = '2048';
         $config['remove_space'] = TRUE;
 

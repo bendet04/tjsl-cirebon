@@ -3,7 +3,15 @@
 <div role="alert" class="alert alert-success">
    <button data-dismiss="alert" class="close" type="button">
 	   <span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
-   <strong>Well done!</strong>
+   <strong>Selamat !</strong>
+   <?= $this->session->flashdata('SUCCESSMSG') ?>
+</div>
+<?php }else if($this->session->flashdata('FAILMSG')){ ?>
+</br>
+<div role="alert" class="alert alert-success">
+   <button data-dismiss="alert" class="close" type="button">
+       <span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+   <strong>Mohon Maaf </strong>
    <?= $this->session->flashdata('SUCCESSMSG') ?>
 </div>
 <?php } ?>

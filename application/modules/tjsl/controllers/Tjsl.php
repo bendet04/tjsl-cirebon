@@ -91,37 +91,57 @@ class Tjsl extends Home_Controller
 
             $this->tjsl_model->save($data);
 
-            $status = 'sukses';
-            $this->kirim_email_kode_pengajuan('jangadipriyatna@gmail.com','haha','test');
+            $this->kirim_email($email_pj, $data['kode_permohonan']);
+            $this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan, mohon tunggu konfirmasi selanjutnya melalui email dan cek secara berkala folder inbox dan spam email anda");
         }else{
-            $status = 'gagal';
+            $this->session->set_flashdata('FAILMSG', "Terjadi kesalahan mohon ulangi proses pendaftaran");
         }
 
-        //$this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan mohon tunggu konfirmasi selanjutnya !!");
         Template::set('program_prioritas', $program_prioritas);
         Template::set('kecamatan', $kecamatan);
         Template::redirect('permohonan_tjsl');
 
     }
 
-    public function kirim_email_kode_pengajuan($to, $subject, $kode){
 
-        // Now send the email
-        $this->load->library('emailer/emailer');
-        $data = array(
-            'to'      => $this->input->post('email'),
-            'subject' => lang('us_reset_pass_subject'),
-            'message' => $this->load->view(
-                '_emails/forgot_password',
-                array('link' => $kode),
-                true
-            ),
-        );
-        $this->emailer->send($data){
-            Template::set_message(lang('us_reset_pass_message'), 'success');
-        } else {
-            Template::set_message(lang('us_reset_pass_error') . $this->emailer->error, 'error');
-        }
+    public function kirim_email($to, $kode){
+        // Konfigurasi email
+        $config = [
+               'useragent' => 'CodeIgniter',
+               'protocol'  => 'smtp',
+               'smtp_host' => 'mail.webcsr.pilarinti.co.id',
+               'smtp_user' => 'admin@webcsr.pilarinti.co.id', // Ganti dengan email gmail Anda
+               'smtp_pass' => '04041993', // Password gmail Anda
+               'smtp_port' => 587,
+               'smtp_keepalive' => TRUE,
+               'wordwrap'  => TRUE,
+               'wrapchars' => 80,
+               'mailtype'  => 'html',
+               'charset'   => 'utf-8',
+               'validate'  => TRUE,
+               'crlf'      => "rn",
+               'newline'   => "rn",
+           ];
+
+        // Load library email dan konfigurasinya
+        $this->load->library('email', $config);
+
+        // Email dan nama pengirim
+        $this->email->from('admin@webcsr.pilarinti.co.id');
+
+        // Email penerima
+        $this->email->to($to); // Ganti dengan email tujuan Anda
+
+        // Lampiran email, isi dengan url/path file
+        //$this->email->attach('https://masrud.com/themes/masrud_v1/img/default.png');
+
+        // Subject email
+        $this->email->subject('Berhasil mengajukan permohonan TJSL');
+
+        // Isi email
+        $this->email->message("Selamat Anda berhasil mengajukan permohonan TJSL dengan nomor pengajuan. <strong>".$kode."</strong>");
+
+        $this->email->send($data);
     }
 }
 
