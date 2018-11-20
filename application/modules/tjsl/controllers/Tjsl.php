@@ -97,7 +97,7 @@ class Tjsl extends Home_Controller
             $status = 'gagal';
         }
 
-        $this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan mohon tunggu konfirmasi selanjutnya !!");
+        //$this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan mohon tunggu konfirmasi selanjutnya !!");
         Template::set('program_prioritas', $program_prioritas);
         Template::set('kecamatan', $kecamatan);
         Template::redirect('permohonan_tjsl');
@@ -117,7 +117,11 @@ class Tjsl extends Home_Controller
                 true
             ),
         );
-        $this->emailer->send($data);
+        $this->emailer->send($data)
+            Template::set_message(lang('us_reset_pass_message'), 'success');
+        } else {
+            Template::set_message(lang('us_reset_pass_error') . $this->emailer->error, 'error');
+        }
     }
 }
 
