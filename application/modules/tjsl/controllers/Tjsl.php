@@ -92,6 +92,7 @@ class Tjsl extends Home_Controller
             $this->tjsl_model->save($data);
 
             $status = 'sukses';
+            $this->kirim_email_kode_pengajuan('jangadipriyatna@gmail.com','haha','test');
         }else{
             $status = 'gagal';
         }
@@ -103,7 +104,19 @@ class Tjsl extends Home_Controller
 
     }
 
+    public function kirim_email_kode_pengajuan($to, $subject, $kode){
 
-}
+        // Now send the email
+        $this->load->library('emailer/emailer');
+        $data = array(
+            'to'      => $this->input->post('email'),
+            'subject' => lang('us_reset_pass_subject'),
+            'message' => $this->load->view(
+                '_emails/forgot_password',
+                array('link' => $kode),
+                true
+            ),
+        );
+    }
 
 /* End of file Cabang_controller.php */
