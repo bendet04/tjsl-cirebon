@@ -94,7 +94,7 @@ class Tjsl extends Home_Controller
             $this->kirim_email($email_pj, $data['kode_permohonan']);
             $this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan, mohon tunggu konfirmasi selanjutnya melalui email dan cek secara berkala folder inbox dan spam email anda");
         }else{
-            $this->session->set_flashdata('FAILMSG', "Terjadi kesalahan mohon ulangi proses pendaftaran");
+            $this->session->set_flashdata('FAILMSG', "Terjadi kesalahan mohon ulangi proses pendaftaran. ".$upload['error']);
         }
 
         Template::set('program_prioritas', $program_prioritas);
