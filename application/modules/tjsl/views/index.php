@@ -12,7 +12,7 @@
    <button data-dismiss="alert" class="close" type="button">
        <span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
    <strong>Mohon Maaf </strong>
-   <?= $this->session->flashdata('SUCCESSMSG') ?>
+   <?= $this->session->flashdata('FAILMSG') ?>
 </div>
 <?php } ?>
 <section class="section section-blog">
