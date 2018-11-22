@@ -139,7 +139,7 @@ class Tjsl extends Home_Controller
         $this->email->subject('Berhasil mengajukan permohonan TJSL');
 
         // Isi email
-        $this->email->message("Selamat Anda berhasil mengajukan permohonan TJSL dengan nomor pengajuan. <strong>".$kode."</strong>");
+        $this->email->message("Selamat Anda berhasil mengajukan permohonan TJSL dengan nomor pengajuan: <strong>".$kode."</strong>");
 
         $this->email->send($data);
     }

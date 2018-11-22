@@ -18,7 +18,9 @@
     <!-- Custom CSS -->
     <link id="theme" href="<?php echo base_url('themes/adminpress/') ?>css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link id="theme" href="<?php echo base_url('themes/adminpress/') ?>css/colors/megna-dark.css" id="theme" rel="stylesheet">
+    <link id="theme" href="<?php echo base_url('themes/adminpress/') ?>css/colors/megna-dark.css" rel="stylesheet">
+    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
