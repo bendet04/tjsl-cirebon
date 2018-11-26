@@ -223,6 +223,7 @@
                             data:{id:value},
                             url: "<?php echo base_url('tjsl/get_sub_program_prioritas') ?>",
                             success: function(res) {
+                                //console.log(res);
                                 $("#SelectSubPriorityProgram").html(res);
                             }
                         });
