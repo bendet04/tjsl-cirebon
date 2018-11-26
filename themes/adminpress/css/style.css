@@ -5120,15 +5120,15 @@ Login register and recover password Page
   position: fixed; }
 
 .login-box {
-  width: 400px;
+  width: 600px;
   margin: 0 auto; }
-  .login-box .footer {
-    width: 100%;
-    left: 0px;
-    right: 0px; }
-  .login-box .social {
-    display: block;
-    margin-bottom: 30px; }
+.login-box .footer {
+  width: 100%;
+  left: 0px;
+  right: 0px; }
+.login-box .social {
+  display: block;
+  margin-bottom: 30px; }
 
 #recoverform {
   display: none; }
