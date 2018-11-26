@@ -52,24 +52,24 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <th   style="width:5%;text-align:center;padding-bottom:20px"></th>
                                 <th colspan="3" style="width:47.5%;text-align:center;padding-bottom:20px">Informsi Perusahaan</th>
                             </tr>
-                            <tr> 
+                            <tr>
                                 <td style="width:15%;padding-bottom:10px;">Nama Pemohon</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
-                                    <input type="hidden" class="form-control" name="id" required > 
+                                    <input type="hidden" class="form-control" name="id" required >
                                     <input type="text" class="form-control" name="nama_pemohon" required disabled="">
                                 </td>
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Program Prioritas</td> 
+                                <td style="width:15%;padding-bottom:10px;">Program Prioritas</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="program_prioritas" required disabled="">
                                 </td>
                             </tr>
-                            <tr> 
-                            <td style="width:15%;padding-bottom:10px;">Tipe Pemohon</td> 
+                            <tr>
+                            <td style="width:15%;padding-bottom:10px;">Tipe Pemohon</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="tipe_pemohon" required disabled="">
@@ -77,14 +77,14 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Sub Program Prioritas</td> 
+                                <td style="width:15%;padding-bottom:10px;">Sub Program Prioritas</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="sub_program_prioritas" required disabled="">
                                 </td>
                             </tr>
-                            <tr> 
-                            <td style="width:15%;padding-bottom:10px;">Email</td> 
+                            <tr>
+                            <td style="width:15%;padding-bottom:10px;">Email</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="email" required disabled="">
@@ -92,14 +92,14 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Tipe Perusahaan</td> 
+                                <td style="width:15%;padding-bottom:10px;">Tipe Perusahaan</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="tipe_perusahaan" required disabled="">
                                 </td>
                             </tr>
                             <tr>
-                            <td style="width:15%;padding-bottom:10px;">NIK Pemohon</td> 
+                            <td style="width:15%;padding-bottom:10px;">NIK Pemohon</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="nik_pj" required disabled="">
@@ -107,14 +107,14 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Nama Perusahaan</td> 
+                                <td style="width:15%;padding-bottom:10px;">Nama Perusahaan</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="nama_perusahaan" required disabled="">
                                 </td>
                             </tr>
                             <tr>
-                            <td style="width:15%;padding-bottom:10px;">No. HP</td> 
+                            <td style="width:15%;padding-bottom:10px;">No. HP</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="no_hp" required disabled="">
@@ -122,14 +122,14 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Nilai RAB</td> 
+                                <td style="width:15%;padding-bottom:10px;">Nilai RAB</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="nilai_rab" required disabled="">
                                 </td>
                             </tr>
                             <tr>
-                            <td style="width:15%;padding-bottom:10px;">Alamat</td> 
+                            <td style="width:15%;padding-bottom:10px;">Alamat</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="alamat" required disabled="">
@@ -137,14 +137,14 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                <td style="width:15%;padding-bottom:10px;">Deskripsi</td> 
+                                <td style="width:15%;padding-bottom:10px;">Deskripsi</td>
                                 <td style="width:5%;padding-bottom:10px;">:</td>
-                                <td style="width:25%;padding-bottom:10px;" > 
+                                <td style="width:25%;padding-bottom:10px;" >
                                     <input type="text" class="form-control" name="deskripsi" required disabled="">
                                 </td>
                             </tr>
                             <tr>
-                            <td style="width:15%;padding-bottom:10px;">Kecamatan</td> 
+                            <td style="width:15%;padding-bottom:10px;">Kecamatan</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
                                     <input type="text" class="form-control" name="kecamatan" required disabled="">
@@ -152,26 +152,31 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                
+                                <td style="width:15%;padding-bottom:10px;">File Proposal</td>
+                                <td style="width:5%;padding-bottom:10px;">:</td>
+                                <td style="width:25%;padding-bottom:10px;" >
+                                    <input type="text" class="form-control" name="file" required disabled="">
+                                </td>
+
                             </tr>
                             <tr>
-                            <td style="width:15%;padding-bottom:10px;">Kelurahan</td> 
+                            <td style="width:15%;padding-bottom:10px;">Kelurahan</td>
                             <td style="width:5%;padding-bottom:10px;">:</td>
                                 <td style="width:25%;padding-bottom:10px;">
-                                    <input type="text" class="form-control" name="kecamatan" required disabled="">
+                                    <input type="text" class="form-control" name="kelurahan" required disabled="">
                                 </td>
                                 <!-- jarak untuk td -->
                                 <td style="width:5%"> </td>
                                 <!--  -->
-                                
+
                             </tr>
                         </table>
                         </div>
-                   
+
                 </div>
 
             </div>
-            
+
         </div>
         <div class="modal-footer">
             <!-- <button type="submit" class="btn btn-success waves-effect text-left" >Lanjutkan Pembayaran</button> -->
@@ -183,11 +188,12 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
 </div>
 <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
 
+
+<!-- /.modal Detail-->
 <div class="modal" id="modal_confirm" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
- 
+
         <div class="modal-content">
             <div class="modal-body">
                 <p>Yakin hapus Tipe permohonan_tjsl?</p>
@@ -196,6 +202,28 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
             <div class="modal-footer">
                 <button type="button" id="confirm_delete" class="btn btn-danger"  data-dismiss="modal">Ya</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- /.modal preview Proposal-->
+<div class="modal" id="modal_preview_proposal" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+        <div class="modal-header">
+         <h4 class="modal-title" id="myLargeModalLabel">Preview Proposal Permohonan Tjsl</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+            <div class="modal-body">
+                <div class="modal-file" id="file">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Close</button>
             </div>
         </div>
 

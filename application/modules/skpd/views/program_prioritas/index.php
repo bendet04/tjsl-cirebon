@@ -9,7 +9,7 @@ var url = "<?php echo site_url('skpd/program_prioritas/') ?>";
             <div class="card-body">
                 <h4 class="card-title">Data  Program Prioritas</h4>
                 <!-- <h6 class="card-title">Export data to Copy, CSV, Excel, PDF & Print</h6> -->
-                <button class="new btn btn-sm btn-success" > <i class="fa fa-plus"></i> Tambah baru</button> </a>
+                <button class="new btn btn-sm btn-success" > <i class="fa fa-plus"></i> Tambah baru</button>
                 <div class="table-responsive m-t-10">
                     <table id="program_prioritas" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
@@ -24,6 +24,7 @@ var url = "<?php echo site_url('skpd/program_prioritas/') ?>";
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     </div>
@@ -31,7 +32,7 @@ var url = "<?php echo site_url('skpd/program_prioritas/') ?>";
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 
-<!-- MODALS tambah-->        
+<!-- MODALS tambah-->
 
 <div class="modal" id="modal_program_prioritas" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -45,14 +46,14 @@ var url = "<?php echo site_url('skpd/program_prioritas/') ?>";
 
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Nama  program Prioritas</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <input type="hidden" class="form-control" name="id" >
                             <input type="text" class="form-control" name="nama_program_prioritas" placeholder="Nama Program Prioritas" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Keterangan</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <textarea class="form-control" name="ket" placeholder="keterangan" required></textarea>
                         </div>
                     </div>
@@ -70,7 +71,7 @@ var url = "<?php echo site_url('skpd/program_prioritas/') ?>";
 
 <div class="modal" id="modal_confirm" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
- 
+
         <div class="modal-content">
             <div class="modal-body">
                 <p>Yakin hapus kategori item?</p>

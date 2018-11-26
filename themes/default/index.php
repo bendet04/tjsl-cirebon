@@ -64,10 +64,32 @@
     <script src="<?php echo base_url('themes/adminpress/') ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url('themes/adminpress/') ?>js/custom.min.js"></script>
+
+    <!-- ajax offline -->
+    <script src="<?php echo base_url('themes/adminpress/') ?>assets/plugins/ajax-2.5.0.min.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url('themes/adminpress/') ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $('#selectSubDistrict').change(function(){
+                    var value = $(this).val();
+                    if (value>0){
+                        $.ajax({
+                            type:"POST",
+                            data:{id:value},
+                            url: "<?php echo base_url('tjsl/get_kelurahan') ?>",
+                            success: function(res) {
+                                $("#SelectSubSubDistrict").html(res);
+                            }
+                        });
+                    }
+                });
+            });
+            </script>
+
 </body>
 
 </html>

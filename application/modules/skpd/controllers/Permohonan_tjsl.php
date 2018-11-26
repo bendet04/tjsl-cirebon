@@ -3,7 +3,7 @@
 
 class Permohonan_tjsl extends MY_Controller
 {
-   
+
     public function __construct()
     {
         parent::__construct();
@@ -28,7 +28,6 @@ class Permohonan_tjsl extends MY_Controller
 
     public function get_permohonan_tjsl()
     {
-        // $output = $this->permohonan_tjsl_model->find($this->input->post('id'));
         $output = $this->permohonan_tjsl_model->get_permohonan_tjsl($this->input->post('id'));
         // print_r($output);
         // header('Content-Type: application/json');
@@ -53,11 +52,13 @@ class Permohonan_tjsl extends MY_Controller
             $save = $this->permohonan_tjsl_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'permohonan_tjsl baru berhasil disimpan!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }else{
@@ -65,11 +66,13 @@ class Permohonan_tjsl extends MY_Controller
             $save = $this->permohonan_tjsl_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'permohonan_tjsl diperbarui!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }
@@ -82,9 +85,11 @@ class Permohonan_tjsl extends MY_Controller
         $delete = $this->permohonan_tjsl_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
+            $result['heading'] = 'Selamat Proses Berhasil';
             $result['msg']    = 'permohonan_tjsl Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
+            $result['heading'] = 'Terjadi Kesalahan';
             $result['msg']    = 'permohonan_tjsl gagal dihapus!';
         }
         header('Content-Type: application/json');

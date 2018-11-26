@@ -57,7 +57,7 @@ class Tjsl extends Home_Controller
         $kecamatan_pj = $this->input->post('selectSubDistrict');
         $kelurahan_pj = $this->input->post('SelectSubSubDistrict');
         $perusahaan_id = $this->input->post('perusahaan');
-        $tipe_perusahan_id = $this->input->post('SelectCompanyType');
+        $tipe_perusahaan_id = $this->input->post('SelectCompanyType');
 
         $data = array();
 
@@ -87,6 +87,7 @@ class Tjsl extends Home_Controller
             $data['alamat'] = $alamat_pj;
             $data['kecamatan_id'] = $kecamatan_pj;
             $data['kelurahan_id'] = $kelurahan_pj;
+            $data['tipe_perusahaan_id'] = $tipe_perusahaan_id;
             $data['perusahaan_id'] = $perusahaan_id;
             $data['tipe_perusahaan_id'] = $tipe_perusahan_id;
             $data['file'] =  $upload['file']['file_name'];

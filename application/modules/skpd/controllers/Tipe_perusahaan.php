@@ -3,7 +3,7 @@
 
 class Tipe_perusahaan extends MY_Controller
 {
-   
+
     public function __construct()
     {
         parent::__construct();
@@ -49,11 +49,13 @@ class Tipe_perusahaan extends MY_Controller
             $save = $this->tipe_perusahaan_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Tipe Perusahaan baru berhasil disimpan!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }else{
@@ -61,11 +63,13 @@ class Tipe_perusahaan extends MY_Controller
             $save = $this->tipe_perusahaan_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Tipe Perusahaan diperbarui!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }
@@ -78,9 +82,11 @@ class Tipe_perusahaan extends MY_Controller
         $delete = $this->tipe_perusahaan_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
+            $result['heading'] = 'Selamat Proses Berhasil';
             $result['msg']    = 'Tipe Perusahaan Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
+            $result['heading'] = 'Terjadi Kesalahan';
             $result['msg']    = 'Tipe Perusahaan gagal dihapus!';
         }
         header('Content-Type: application/json');

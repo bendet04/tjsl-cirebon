@@ -3,7 +3,7 @@
 
 class sub_program_prioritas extends MY_Controller
 {
-   
+
     public function __construct()
     {
         parent::__construct();
@@ -53,11 +53,13 @@ class sub_program_prioritas extends MY_Controller
             $save = $this->sub_program_prioritas_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Kategori baru berhasil disimpan!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }else{
@@ -65,11 +67,13 @@ class sub_program_prioritas extends MY_Controller
             $save = $this->sub_program_prioritas_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Data Kategori diperbarui!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }
@@ -82,9 +86,11 @@ class sub_program_prioritas extends MY_Controller
         $delete = $this->sub_program_prioritas_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
+            $result['heading'] = 'Selamat Proses Berhasil';
             $result['msg']    = 'Sub Program Prioritas Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
+            $result['heading'] = 'Terjadi Kesalahan';
             $result['msg']    = 'Sub Program Prioritas gagal dihapus!';
         }
         header('Content-Type: application/json');

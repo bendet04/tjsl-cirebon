@@ -1,3 +1,6 @@
+<script type="text/javascript">
+var url = "<?php echo site_url('skpd/perusahaan/') ?>";
+</script>
 <?php
 
 $errorClass   = empty($errorClass) ? ' error' : $errorClass;
@@ -71,3 +74,6 @@ $fieldData = array(
 </div>
 </div>
 </section> 
+
+
+

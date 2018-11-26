@@ -31,7 +31,7 @@ var url = "<?php echo site_url('skpd/jenis_permohonan/') ?>";
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 
-<!-- MODALS tambah-->        
+<!-- MODALS tambah-->
 
 <div class="modal" id="modal_jenis_permohonan" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -45,14 +45,14 @@ var url = "<?php echo site_url('skpd/jenis_permohonan/') ?>";
 
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Nama  jenis Permohonan</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <input type="hidden" class="form-control" name="id" >
                             <input type="text" class="form-control" name="nama_jenis_permohonan" placeholder="Nama jenis Permohonan" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Keterangan</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <textarea class="form-control" name="ket" placeholder="keterangan" required></textarea>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ var url = "<?php echo site_url('skpd/jenis_permohonan/') ?>";
 
 <div class="modal" id="modal_confirm" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
- 
+
         <div class="modal-content">
             <div class="modal-body">
                 <p>Yakin hapus Jenis Permohonan?</p>

@@ -907,51 +907,77 @@ class User_model extends BF_Model
         $result = $query->result();
         return empty($result) ? false : $result;
     }
-
-    //-------------------------------------------------------------select
-    public function get_option_select($role_id)
+    
+    // ngambil user
+    public function get_all_user()
         {
-            $data = $this->find_all();
+            $data = $this->where('users.deleted',0)->find_all();
             $output = array();
-
+             if (empty($data)){
+                    $output['data']=array("-","-","-","-");
+                
+             }else{
             foreach ($data as $row) {
-                 if($row->role_id == $role_id){
-                    $output[$row->id]=$row->username;
-                 }
+                $array = array();
+                $array[] = $row->id;
+                $array[] = $row->display_name;
+                $array[] = $row->username;
+                $array[] = $row->email;
+                $array[] = $row->role_name;
+                $array[] = $row->last_login;
+                // $array[] = "<button type='button' class='btn waves-effect waves-light btn-xs btn-info'>Tiny .btn-xs</button>";
+                $array[] = '<a class="edit btn waves-effect waves-light btn-xs btn-info" data-id="'.$row->id.'" style="color:#FFF;"><i class="fa fa-edit"></i> Edit</a>
+                                <a class="delete btn waves-effect waves-light btn-xs btn-danger" data-id="'.$row->id.'" style="color:#FFF;"><i class="fa fa-trash-o"></i> Hapus</a> ';
+                $output['data'][] = $array;
             }
+        }
             return $output;
         }
 
-    //-------------------------------------------------------------select
-    public function get_option_select_sales()
-        {
-            $data = $this->where('cabang_id', $this->auth->user()->cabang_id)->find_all();
-            $output = array();
+    // //-------------------------------------------------------------select
+    // public function get_option_select($role_id)
+    //     {
+    //         $data = $this->find_all();
+    //         $output = array();
 
-            // foreach ($data as $row) {
-            //      if($row->role_id == 13 || $row->role_id == 13 || $row->role_id == 13){
-            //         $output[$row->id]=$row->username;
-            //      }
-            // }
-            foreach ($data as $row) {
-                $output[$row->id]=$row->display_name;
-            }
-            return $output;
-        }
+    //         foreach ($data as $row) {
+    //              if($row->role_id == $role_id){
+    //                 $output[$row->id]=$row->username;
+    //              }
+    //         }
+    //         return $output;
+    //     }
+
+    // //-------------------------------------------------------------select
+    // public function get_option_select_sales()
+    //     {
+    //         $data = $this->where('cabang_id', $this->auth->user()->cabang_id)->find_all();
+    //         $output = array();
+
+    //         // foreach ($data as $row) {
+    //         //      if($row->role_id == 13 || $row->role_id == 13 || $row->role_id == 13){
+    //         //         $output[$row->id]=$row->username;
+    //         //      }
+    //         // }
+    //         foreach ($data as $row) {
+    //             $output[$row->id]=$row->display_name;
+    //         }
+    //         return $output;
+    //     }
 
 
-    //-------------------------------------------------------------select
-    public function get_detail($id = 0)
-        {
-            $data =$this->db->select('a.id, a.display_name, b.role_name, c.kota')
-                        ->from('users a')
-                        ->join('roles b', 'a.role_id = b.role_id')
-                        ->join('cabang c','a.cabang_id = c.id')
-                        ->where('a.id',$id)
-                        ->get()->row();
+    // //-------------------------------------------------------------select
+    // public function get_detail($id = 0)
+    //     {
+    //         $data =$this->db->select('a.id, a.display_name, b.role_name, c.kota')
+    //                     ->from('users a')
+    //                     ->join('roles b', 'a.role_id = b.role_id')
+    //                     ->join('cabang c','a.cabang_id = c.id')
+    //                     ->where('a.id',$id)
+    //                     ->get()->row();
       
-            return $data;
-        }
+    //         return $data;
+    //     }
 
 
     /**

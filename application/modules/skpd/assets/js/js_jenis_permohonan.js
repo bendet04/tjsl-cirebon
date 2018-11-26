@@ -17,7 +17,7 @@ $(document).ready(function() {
         { targets: [0], visible: false},
         ]
     });
-    
+
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_jenis_permohonan').trigger("reset");
@@ -63,6 +63,8 @@ $(document).ready(function() {
             data: $('#form_jenis_permohonan').serialize(),
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 $("#modal_jenis_permohonan").modal("hide");
                 jenis_permohonan.ajax.reload();
                 $('#form_jenis_permohonan').trigger("reset");
@@ -81,6 +83,8 @@ $(document).ready(function() {
             data: {id : id_jenis_permohonan},
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 jenis_permohonan.ajax.reload();
             }
         });

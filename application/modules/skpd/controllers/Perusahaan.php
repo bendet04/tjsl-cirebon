@@ -3,7 +3,7 @@
 
 class Perusahaan extends MY_Controller
 {
-   
+
     public function __construct()
     {
         parent::__construct();
@@ -16,6 +16,9 @@ class Perusahaan extends MY_Controller
     public function index()
     {
         $data=$this->tipe_perusahaan_model->get_option_select();
+        $kecamatan = $this->perusahaan_model->get_kecamatan();
+        //die (json_encode($program_prioritas));
+        Template::set('kecamatan', $kecamatan);
         Template::set('list_tipe_perusahaan',$data);
         Template::render();
     }
@@ -26,6 +29,11 @@ class Perusahaan extends MY_Controller
     {
         $data = $this->perusahaan_model->get_all_perusahaan();
         echo json_encode($data);
+    }
+
+    public function get_kelurahan(){
+        $id = $this->input->post('id');
+        echo $this->perusahaan_model->get_kelurahan($id);
     }
 
     public function get_perusahaan()
@@ -43,7 +51,10 @@ class Perusahaan extends MY_Controller
 
             'nama_perusahaan'      => $this->input->post('nama_perusahaan'),
             'tipe_perusahaan_id'      => $this->input->post('tipe_perusahaan_id'),
-            'ket'     => $this->input->post('ket'),
+            'kecamatan'      => $this->input->post('selectSubDistrict'),
+            'kelurahan'      => $this->input->post('SelectSubSubDistrict'),
+            'alamat'      => $this->input->post('alamat'),
+            'ket'     => '-',
             'created_by' => 1 ,
             'created_on' => date('Y-m-d h:i:s'),
         );
@@ -54,11 +65,13 @@ class Perusahaan extends MY_Controller
             $save = $this->perusahaan_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Perusahaan baru berhasil disimpan!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }else{
@@ -66,11 +79,13 @@ class Perusahaan extends MY_Controller
             $save = $this->perusahaan_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Perusahaan diperbarui!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }
@@ -83,9 +98,11 @@ class Perusahaan extends MY_Controller
         $delete = $this->perusahaan_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
+            $result['heading'] = 'Selamat Proses Berhasil';
             $result['msg']    = 'Perusahaan Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
+            $result['heading'] = 'Terjadi Kesalahan';
             $result['msg']    = 'Perusahaan gagal dihapus!';
         }
         header('Content-Type: application/json');
