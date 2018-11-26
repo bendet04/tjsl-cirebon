@@ -76,7 +76,7 @@ class Perusahaan_model extends BF_Model {
 		a.`status` AS status
 		FROM
 		`perusahaan` AS a
-		LEFT JOIN `tipe_perusahaan` AS b ON a.`tipe_id` = b.`tipe_id`
+		LEFT JOIN `tipe_perusahaan` AS b ON a.`tipe_perusahaan_id` = b.`tipe_perusahaan_id`
 		, (SELECT @row := 0) r WHERE 1=1
 		";
 

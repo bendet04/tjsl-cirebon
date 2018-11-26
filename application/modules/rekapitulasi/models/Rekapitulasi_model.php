@@ -31,7 +31,7 @@ class Rekapitulasi_model extends BF_Model {
 			$this->db->select('count(permohonan_tjsl_id) as jumlah_permohonan');
 			$this->db->from('permohonan_tjsl');
 			$this->db->where('deleted=0');
-			$this->db->where('program_proritas_id', $key->program_prioritas_id);
+			$this->db->where('program_prioritas_id', $key->program_prioritas_id);
 
 			$jumlah_permohonan = $this->db->get()->row();
 
@@ -39,7 +39,7 @@ class Rekapitulasi_model extends BF_Model {
 			$this->db->select('sum(nilai_rab) as jumlah_biaya');
 			$this->db->from('permohonan_tjsl');
 			$this->db->where('deleted=0');
-			$this->db->where('program_proritas_id', $key->program_prioritas_id);
+			$this->db->where('program_prioritas_id', $key->program_prioritas_id);
 
 			$jumlah_biaya = $this->db->get()->row();
 
@@ -48,7 +48,7 @@ class Rekapitulasi_model extends BF_Model {
 			$this->db->from('permohonan_tjsl');
 			$this->db->where('deleted = 0');
 			$this->db->where('status = 0');
-			$this->db->where('program_proritas_id', $key->program_prioritas_id);
+			$this->db->where('program_prioritas_id', $key->program_prioritas_id);
 
 			$jumlah_acc = $this->db->get()->row();
 
@@ -89,7 +89,7 @@ class Rekapitulasi_model extends BF_Model {
 			$this->db->select('count(permohonan_tjsl_id) as jumlah_permohonan');
 			$this->db->from('permohonan_tjsl');
 			$this->db->where('deleted=0');
-			$this->db->where('program_proritas_id', $key->program_prioritas_id);
+			$this->db->where('program_prioritas_id', $key->program_prioritas_id);
 
 			$jumlah_permohonan = $this->db->get()->row();
 			$data[] = (int) $jumlah_permohonan->jumlah_permohonan;

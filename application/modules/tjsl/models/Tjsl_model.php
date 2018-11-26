@@ -47,10 +47,10 @@ class Tjsl_model extends BF_Model {
 		$this->db->select('*');
 		$this->db->from('sub_program_prioritas');
 		$this->db->where('program_prioritas_id', $id);
-		$this->db->where('deleted = 0');
+
 		//Get contents
 		foreach ($this->db->get()->result_array() as $data ){
-			$sub_program.= "<option value='$data[sub_program_prioritas_id]'>$data[nama_program_prioritas]</option>";
+			$sub_program.= "<option value='$data[sub_program_prioritas_id]'>$data[nama_sub_program_prioritas]</option>";
 		}
 
 		return $sub_program;
@@ -82,7 +82,7 @@ class Tjsl_model extends BF_Model {
 
 		$this->db->select('*');
 		$this->db->from('perusahaan');
-		$this->db->where('tipe_id', $id);
+		$this->db->where('perusahaan_id', $id);
 		//Get contents
 		foreach ($this->db->get()->result_array() as $data ){
 			$perusahaan.= "<option value='$data[perusahaan_id]'>$data[nama_perusahaan]</option>";

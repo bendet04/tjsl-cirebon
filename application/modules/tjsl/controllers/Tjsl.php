@@ -57,6 +57,7 @@ class Tjsl extends Home_Controller
         $kecamatan_pj = $this->input->post('selectSubDistrict');
         $kelurahan_pj = $this->input->post('SelectSubSubDistrict');
         $perusahaan_id = $this->input->post('perusahaan');
+        $tipe_perusahan_id = $this->input->post('SelectCompanyType');
 
         $data = array();
 
@@ -70,7 +71,7 @@ class Tjsl extends Home_Controller
         if($upload['result'] == "success"){ // Jika proses upload sukses
             // Panggil function save yang ada di GambarModel.php untuk menyimpan data ke database
             $data = array();
-            $data['program_proritas_id'] = $program_id;
+            $data['program_prioritas_id'] = $program_id;
             $data['kode_permohonan'] = $this->tjsl_model->get_kode();
             $data['sub_program_prioritas_id'] = $sub_program_id;
             $data['deskripsi'] = $deskripsi;
@@ -87,6 +88,7 @@ class Tjsl extends Home_Controller
             $data['kecamatan_id'] = $kecamatan_pj;
             $data['kelurahan_id'] = $kelurahan_pj;
             $data['perusahaan_id'] = $perusahaan_id;
+            $data['tipe_perusahaan_id'] = $tipe_perusahan_id;
             $data['file'] =  $upload['file']['file_name'];
 
             $this->tjsl_model->save($data);
