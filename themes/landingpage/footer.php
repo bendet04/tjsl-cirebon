@@ -33,7 +33,10 @@
     <!-- slect 2 -->
     <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
 
+<!-- ajax offline -->
+    <script src="<?php echo base_url('themes/landingpage/') ?>assets/plugins/ajax-2.5.0.min.js"></script>
 
+    
     <script type="text/javascript">
 
     // Toggle tranparent navbar when the user scrolls the page

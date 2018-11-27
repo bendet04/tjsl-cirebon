@@ -17,7 +17,7 @@ $(document).ready(function() {
         { targets: [0], visible: false},
         ]
     });
-    
+
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_tipe_perusahaan').trigger("reset");
@@ -63,6 +63,8 @@ $(document).ready(function() {
             data: $('#form_tipe_perusahaan').serialize(),
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 $("#modal_tipe_perusahaan").modal("hide");
                 tipe_perusahaan.ajax.reload();
                 $('#form_tipe_perusahaan').trigger("reset");
@@ -81,6 +83,8 @@ $(document).ready(function() {
             data: {id : id_tipe_perusahaan},
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 tipe_perusahaan.ajax.reload();
             }
         });

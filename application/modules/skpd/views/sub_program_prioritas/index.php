@@ -32,7 +32,7 @@ var url = "<?php echo site_url('skpd/sub_program_prioritas/') ?>";
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 
-<!-- MODALS tambah-->        
+<!-- MODALS tambah-->
 
 <div class="modal" id="modal_sub_program_prioritas" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog">
@@ -46,13 +46,13 @@ var url = "<?php echo site_url('skpd/sub_program_prioritas/') ?>";
 
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Nama Sub program Prioritas</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <input type="hidden" class="form-control" name="id" >
                             <input type="text" class="form-control" name="nama_sub_program_prioritas" placeholder="Nama Sub Program Prioritas" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <select class="form-control" name="program_prioritas_id" required>
                                 <option value="">-- Program Prioritas --</option>
                                 <?php foreach ($list_program_prioritas as $key => $value): ?>
@@ -64,7 +64,7 @@ var url = "<?php echo site_url('skpd/sub_program_prioritas/') ?>";
                     </div>
                     <div class="form-group row">
                         <!-- <label class="col-md-3 col-xs-12 control-label">Keterangan</label> -->
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <textarea class="form-control" name="ket" placeholder="keterangan" required></textarea>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ var url = "<?php echo site_url('skpd/sub_program_prioritas/') ?>";
 
 <div class="modal" id="modal_confirm" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
- 
+
         <div class="modal-content">
             <div class="modal-body">
                 <p>Yakin hapus kategori item?</p>

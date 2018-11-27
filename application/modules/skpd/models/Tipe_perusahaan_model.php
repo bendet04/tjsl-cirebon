@@ -8,7 +8,7 @@ class Tipe_perusahaan_model extends MY_Model
 		protected $set_created       = TRUE;
 		protected $created_field     = 'created_on';
 		protected $created_by_field  = 'created_by';
-		
+
 		protected $set_modified      = TRUE;
 		protected $modified_field    = 'modified_on';
 		protected $modified_by_field = 'modified_by';
@@ -24,7 +24,7 @@ class Tipe_perusahaan_model extends MY_Model
         	$output = array();
         	 if (empty($data)){
 	            	$output['data']=array("-","-","-","-");
-	        	
+
 	       	 }else{
 	        foreach ($data as $row) {
 	            $array = array();
@@ -34,10 +34,10 @@ class Tipe_perusahaan_model extends MY_Model
 	            // $array[] = "<button type='button' class='btn waves-effect waves-light btn-xs btn-info'>Tiny .btn-xs</button>";
 	            $array[] = '<a class="edit btn waves-effect waves-light btn-xs btn-info" data-id="'.$row->tipe_perusahaan_id.'" style="color:#FFF;"><i class="fa fa-edit"></i> Edit</a>
 	            				<a class="delete btn waves-effect waves-light btn-xs btn-danger" data-id="'.$row->tipe_perusahaan_id.'" style="color:#FFF;"><i class="fa fa-trash-o"></i> Hapus</a> ';
-	           
+
 	            $output['data'][] = $array;
 
-	            
+
 	        }
 	    }
 

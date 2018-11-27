@@ -19,7 +19,7 @@ $(document).ready(function() {
         ]
     });
 
-    
+
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_sub_program_prioritas').trigger("reset");
@@ -66,6 +66,8 @@ $(document).ready(function() {
             data: $('#form_sub_program_prioritas').serialize(),
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 $("#modal_sub_program_prioritas").modal("hide");
                 sub_program_prioritas.ajax.reload();
                 $('#form_sub_program_prioritas').trigger("reset");
@@ -84,6 +86,8 @@ $(document).ready(function() {
             data: {id : id_sub_program_prioritas},
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 sub_program_prioritas.ajax.reload();
             }
         });

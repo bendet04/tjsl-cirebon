@@ -15,6 +15,8 @@
   <script src="<?php echo base_url('themes/adminpress/') ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
   <!--Custom JavaScript -->
   <script src="<?php echo base_url('themes/adminpress/horizontal/') ?>js/custom.min.js"></script>
+  <!-- ajax offline -->
+    <script src="<?php echo base_url('themes/adminpress/') ?>assets/plugins/ajax-2.5.0.min.js"></script>
   <!-- ============================================================== -->
   <!-- Style switcher -->
   <!-- ============================================================== -->

@@ -3,7 +3,7 @@
 
 class Jenis_permohonan extends MY_Controller
 {
-   
+
     public function __construct()
     {
         parent::__construct();
@@ -49,11 +49,13 @@ class Jenis_permohonan extends MY_Controller
             $save = $this->jenis_permohonan_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Jenis Permohonan baru berhasil disimpan!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }else{
@@ -61,11 +63,13 @@ class Jenis_permohonan extends MY_Controller
             $save = $this->jenis_permohonan_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
                 $result['msg']    = 'Jenis Permohonan diperbarui!';
 
 
             }else{
                 $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
                 $result['msg']    = $this->db->error_message();
             }
         }
@@ -78,9 +82,11 @@ class Jenis_permohonan extends MY_Controller
         $delete = $this->jenis_permohonan_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
+            $result['heading'] = 'Selamat Proses Berhasil';
             $result['msg']    = 'Jenis Permohonan Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
+            $result['heading'] = 'Terjadi Kesalahan';
             $result['msg']    = 'Jenis Permohonan gagal dihapus!';
         }
         header('Content-Type: application/json');

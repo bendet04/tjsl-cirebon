@@ -17,7 +17,9 @@ var url = "<?php echo site_url('skpd/perusahaan/') ?>";
                             <th>ID </th>
                             <th>Nama Perusahaan</th>
                             <th>Nama Tipe Perusahaan</th>
-                            <th>Keterangan</th>
+                            <th>Kecamatan</th>
+                            <th>Kelurahan</th>
+                            <th>Alamat</th>
                             <th width="180px">Aksi</th>
                         </tr>
                         </thead>
@@ -32,7 +34,7 @@ var url = "<?php echo site_url('skpd/perusahaan/') ?>";
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 
-<!-- MODALS tambah-->        
+<!-- MODALS tambah-->
 
 <div class="modal" id="modal_perusahaan" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -45,13 +47,13 @@ var url = "<?php echo site_url('skpd/perusahaan/') ?>";
                 <div class="modal-body">
 
                     <div class="form-group row">
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <input type="hidden" class="form-control" name="id" >
                             <input type="text" class="form-control" name="nama_perusahaan" placeholder="Nama Tipe Perusahaan" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-12 col-xs-12">                                            
+                        <div class="col-md-12 col-xs-12">
                             <select class="form-control" name="tipe_perusahaan_id" required>
                                 <option value="">-- Tipe Perusahaan --</option>
                                 <?php foreach ($list_tipe_perusahaan as $key => $value): ?>
@@ -61,11 +63,35 @@ var url = "<?php echo site_url('skpd/perusahaan/') ?>";
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">                     
-                       <div class="col-md-12 col-xs-12">                                            
-                            <textarea class="form-control" name="ket" placeholder="keterangan" required></textarea>
+                     <div class="form-group row">
+                        <div class="col-md-12 col-xs-12">
+                            <select  name="selectSubDistrict" class="chosen-select form-control" id="selectSubDistrict" required>
+                                <option value="">-- Pilih Kecamatan --</option>
+                                <?php
+                                foreach ($kecamatan as $kec) {
+                                    echo "<option value='$kec[id]'>$kec[nama]</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <div class="col-md-12 col-xs-12">
+                            <select name="SelectSubSubDistrict" id="SelectSubSubDistrict" class="chosen-select form-control" data-rel="chosen" required>
+                                <option value="">--pilih Kelurahan--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                       <div class="col-md-12 col-xs-12">
+                            <textarea class="form-control" name="alamat" placeholder="alamat" required></textarea>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                       <div class="col-md-12 col-xs-12">
+                            <textarea class="form-control" name="ket" placeholder="keterangan" required></textarea>
+                        </div>
+                    </div> -->
 
 
                 </div>
@@ -80,7 +106,7 @@ var url = "<?php echo site_url('skpd/perusahaan/') ?>";
 
 <div class="modal" id="modal_confirm" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
- 
+
         <div class="modal-content">
             <div class="modal-body">
                 <p>Yakin hapus Tipe Perusahaan?</p>

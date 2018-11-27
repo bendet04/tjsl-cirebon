@@ -8,3 +8,4 @@
 [10-Mar-2018 16:40:47 Asia/Jakarta] PHP Fatal error:  Call to undefined method CI_DB_mysqli_driver::error_message() in /home/demopmuicoid/public_html/application/modules/pos/controllers/Adjust_stock.php on line 150
 [10-Mar-2018 16:40:53 Asia/Jakarta] PHP Fatal error:  Call to undefined method CI_DB_mysqli_driver::error_message() in /home/demopmuicoid/public_html/application/modules/pos/controllers/Adjust_stock.php on line 150
 [10-Mar-2018 16:40:59 Asia/Jakarta] PHP Fatal error:  Call to undefined method CI_DB_mysqli_driver::error_message() in /home/demopmuicoid/public_html/application/modules/pos/controllers/Adjust_stock.php on line 150
+[20-Nov-2018 19:41:38 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '<' in /home/webcsrpilarinti/public_html/test_mail.php on line 7

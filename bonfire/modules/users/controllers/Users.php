@@ -45,6 +45,14 @@ class Users extends Front_Controller
         $this->load->library('users/auth');
 
         $this->lang->load('users');
+
+        // manggil model tipe_perusahaan
+        $this->load->model('skpd/tipe_perusahaan_model');
+        $this->load->model('skpd/perusahaan_model');
+        $this->load->model('tjsl/tjsl_model');
+        Assets::add_module_js('skpd', 'js_perusahaan.js');
+
+
         $this->siteSettings = $this->settings_lib->find_all();
         if ($this->siteSettings['auth.password_show_labels'] == 1) {
             Assets::add_module_js('users', 'password_strength.js');
@@ -217,6 +225,14 @@ class Users extends Front_Controller
         $register_url = $this->input->post('register_url') ?: REGISTER_URL;
         $login_url    = $this->input->post('login_url') ?: LOGIN_URL;
 
+        
+
+        // manggil list data dari model
+        $kecamatan = $this->tjsl_model->get_kecamatan();
+        $data=$this->tipe_perusahaan_model->get_option_select();
+        Template::set('kecamatan', $kecamatan);
+        Template::set('list_tipe_perusahaan',$data);
+
         $this->load->model('roles/role_model');
         $this->load->helper('date');
 
@@ -265,6 +281,11 @@ class Users extends Front_Controller
         Template::set('languages', unserialize($this->settings_lib->item('site.languages')));
         Template::set('page_title', 'Register');
         Template::render();
+    }
+
+    public function get_kelurahan(){
+        $id = $this->input->post('id');
+        echo $this->perusahaan_model->get_kelurahan($id);
     }
 
     // -------------------------------------------------------------------------

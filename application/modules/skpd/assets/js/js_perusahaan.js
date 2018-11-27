@@ -7,7 +7,9 @@ $(document).ready(function() {
         { sName: "perusahaan_id" },
         { sName: "nama_perusahaan" },
         { sName: "tipe_perusahaan_id" },
-        { sName: "ket" },
+        { sName: "nama_kec" },
+        { sName: "nama_kel" },
+        { sName: "alamat" },
         { sName: "aksi" }
          ],
          dom: 'Bfrtip',
@@ -18,7 +20,7 @@ $(document).ready(function() {
         { targets: [0], visible: false},
         ]
     });
-    
+
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_perusahaan').trigger("reset");
@@ -26,6 +28,23 @@ $(document).ready(function() {
        $('#modal_perusahaan .modal-footer button').html('Tambah');
        $('#modal_perusahaan').modal('show');
     })
+
+    //event ketika memillih kecamatan
+
+    $('#selectSubDistrict').change(function(){
+    var value = $(this).val();
+    if (value>0){
+        $.ajax({
+            type:"POST",
+            data:{id:value},
+            url: url+'get_kelurahan',
+            success: function(res) {
+                $("#SelectSubSubDistrict").html(res);
+            }
+        });
+    }
+});
+
 
     //event ketika tombol edit di click
     $(document).on('click', '.edit', function() {
@@ -42,7 +61,9 @@ $(document).ready(function() {
                 $('#modal_perusahaan input[name="id"]').val(dt.perusahaan_id);
                 $('#modal_perusahaan input[name="nama_perusahaan"]').val(dt.nama_perusahaan);
                 $('#modal_perusahaan select[name="tipe_perusahaan_id"]').val(dt.tipe_perusahaan_id);
-                $('#modal_perusahaan textarea[name="ket"]').val(dt.ket);
+                $('#modal_perusahaan select[name="selectSubDistrict"]').val(dt.kecamatan);
+                $('#modal_perusahaan select[name="selectSubSubDistrict"]').val(dt.kelurahan);
+                $('#modal_perusahaan textarea[name="alamat"]').val(dt.alamat);
                 $('#modal_perusahaan .modal-footer button').html('Perbarui');
 
             }
@@ -65,6 +86,8 @@ $(document).ready(function() {
             data: $('#form_perusahaan').serialize(),
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 $("#modal_perusahaan").modal("hide");
                 perusahaan.ajax.reload();
                 $('#form_perusahaan').trigger("reset");
@@ -83,6 +106,8 @@ $(document).ready(function() {
             data: {id : id_perusahaan},
             dataType: 'json',
             success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
                 perusahaan.ajax.reload();
             }
         });
