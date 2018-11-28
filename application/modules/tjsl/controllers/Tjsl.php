@@ -89,7 +89,6 @@ class Tjsl extends Home_Controller
             $data['kelurahan_id'] = $kelurahan_pj;
             $data['tipe_perusahaan_id'] = $tipe_perusahaan_id;
             $data['perusahaan_id'] = $perusahaan_id;
-            $data['tipe_perusahaan_id'] = $tipe_perusahan_id;
             $data['file'] =  $upload['file']['file_name'];
 
             $this->tjsl_model->save($data);

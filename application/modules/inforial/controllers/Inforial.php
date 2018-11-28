@@ -24,10 +24,10 @@ class Inforial extends Home_Controller
     }
 
     public function read_more(){
-        $id = $this->uri->segment('4');
-        $news_detail = $this->inforial_model->get_news_by_id(1);
+        $id = $this->uri->segment('2');
+        $news_detail = $this->inforial_model->get_news_by_id('4');
         Template::set('news_detail', $news_detail);
-        Template::set_view('news_detail');
+        Template::set_view('inforial_detail');
         Template::render();
     }
 }

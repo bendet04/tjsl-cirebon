@@ -1,6 +1,6 @@
-<li class="nav-devider"></li>
+
     <li class="nav-small-cap">GENERAL</li>
-    <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+    <li> <a class=" waves-effect waves-dark" href="<?php echo site_url('skpd/skpd') ?>" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
 
     </li>
     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Master Data</span></a>
@@ -17,8 +17,8 @@
     </li>
     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Master Content</span></a>
         <ul aria-expanded="false" class="collapse">
-            <li><a href="#">Inforial Berita</a></li>
-            <li><a href="#">Inforial Kegiatan TJSL</a></li>
+            <li><a href="<?php echo site_url('skpd/berita') ?>">Inforial Berita</a></li>
+            <li><a href="<?php echo site_url('skpd/kegiatan_tjsl') ?>">Inforial Kegiatan TJSL</a></li>
             <li><a href="#">Baner</a></li>
         </ul>
     </li>
@@ -41,3 +41,5 @@
             <li><a href="#">Realisasi TJSL</a></li>
         </ul>
     </li>
+    <li class="nav-devider"></li>
+<li><a href="<?php echo site_url('logout') ?>"><i class="mdi mdi-book-multiple"></i>Logout</a></li>

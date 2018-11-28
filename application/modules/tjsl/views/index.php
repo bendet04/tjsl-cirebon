@@ -31,7 +31,7 @@
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#identitas" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Identitas</span></a> </li>
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#lembaga" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Lembaga Yang Dituju</span></a> </li>
                                     </ul>
-                                        <?php echo form_open("simpan_pengajuan", array('enctype'=>'multipart/form-data')); ?>
+                                        <?php echo form_open_multipart("simpan_pengajuan"); ?>
                                          <div class="tab-content tabcontent-border">
                                             <br>
                                             <div id="program" class="tab-pane in active">
