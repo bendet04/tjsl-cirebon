@@ -1,6 +1,3 @@
-<?php
-//$site_open = $this->settings_lib->item('auth.allow_register');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
