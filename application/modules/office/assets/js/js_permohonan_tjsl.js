@@ -8,9 +8,9 @@ $(document).ready(function() {
         { sName: "nama_pj" },
         { sName: "tipe_pj" },
         { sName: "email" },
-        { sName: "nama_program_prioritas" },
-        { sName: "nama_perusahaan" },
+        { sName: "no_hp" },
         { sName: "nilai_rab" },
+        { sName: "status_permohonan" },
         { sName: "aksi" }
          ],
          dom: 'Bfrtip',
@@ -115,6 +115,109 @@ $(document).ready(function() {
                 $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
               });
                 permohonan_tjsl.ajax.reload();
+            }
+        });
+    })
+
+
+    // realisasi dll
+    // //event ketika tombol realisasi di click
+    // $(document).on('click', '.realisasi', function() {
+    //     // alert("asdadss");
+    //     var id_realisasi = $(this).data('id');
+    //     $('#id_realisasi').val(id_realisasi);
+    //     $('#modal_notif_realisasi').modal('show');
+    // })
+    // // setelahh setuju dengan notif
+    // $(document).on('click', '#notif_realisasi', function() {
+    //     var permohonan_tjsl_id = document.getElementById("id_realisasi").value;
+    //     // alert(id_realisasi);
+    //     $('#permohonan_tjsl_id').val(permohonan_tjsl_id);
+    //     $('#modal_confirm_realisasi').modal('show');
+    // })
+    // //Proses konfirmasi ubah tipe
+    // $(document).on('click', '#confirm_realisasi', function() {
+    //     var permohonan_tjsl_id = $('#permohonan_tjsl_id').val();
+    //     var nominal_realisasi = $('#nominal_realisasi').val();
+    //     $.ajax({
+    //         type: 'post',
+    //         url: url+'realisasi',
+    //         data: {permohonan_tjsl_id : permohonan_tjsl_id, nominal_realisasi : nominal_realisasi},
+    //         dataType: 'json',
+    //         success: function (dt) {
+    //             $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+    //           });
+    //            perusahaan.ajax.reload();
+
+    //         }
+    //     });
+    // })
+    
+     //event ketika tombol setujui  di click
+    $(document).on('click', '.setujui', function() {
+        var id_setujui = $(this).data('id');
+        $('#id_setujui').val(id_setujui);
+        $('#modal_confirm_setujui').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_setujui', function() {
+        var id_setujui = $('#id_setujui').val();
+        $.ajax({
+            type: 'post',
+            url: url+'setujui',
+            data: {id : id_setujui},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               permohonan_tjsl.ajax.reload();
+
+            }
+        });
+    })
+
+    //event ketika tombol tolak  di click
+    $(document).on('click', '.tolak', function() {
+        var id_tolak = $(this).data('id');
+        $('#id_tolak').val(id_tolak);
+        $('#modal_confirm_tolak').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_tolak', function() {
+        var id_tolak = $('#id_tolak').val();
+        $.ajax({
+            type: 'post',
+            url: url+'tolak',
+            data: {id : id_tolak},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               permohonan_tjsl.ajax.reload();
+
+            }
+        });
+    })
+
+    //event ketika tombol batal  di click
+    $(document).on('click', '.batal', function() {
+        var id_batal = $(this).data('id');
+        $('#id_batal').val(id_batal);
+        $('#modal_confirm_batal').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_batal', function() {
+        var id_batal = $('#id_batal').val();
+        $.ajax({
+            type: 'post',
+            url: url+'batal',
+            data: {id : id_batal},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               permohonan_tjsl.ajax.reload();
+
             }
         });
     })

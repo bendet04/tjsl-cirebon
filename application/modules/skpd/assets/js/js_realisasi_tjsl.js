@@ -1,22 +1,24 @@
 $(document).ready(function() {
 
-	var permohonan_tjsl = $('#permohonan_tjsl').DataTable({
+	var realisasi_tjsl = $('#realisasi_tjsl').DataTable({
         ajax : url+'listener_show_all',
         processing: true,
         columns: [
-        { sName: "permohonan_tjsl_id" },
+        { sName: "realisasi_tjsl_id" },
         { sName: "nama_pj" },
         { sName: "tipe_pj" },
         { sName: "email" },
-        { sName: "nama_program_prioritas" },
-        { sName: "nama_perusahaan" },
+        { sName: "no_hp" },
         { sName: "nilai_rab" },
+        { sName: "status_permohonan" },
+        { sName: "status_realisasi" },
         { sName: "aksi" }
          ],
          dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
+        ]
+        ,
         columnDefs: [
         { targets: [0], visible: false},
         ]
@@ -25,15 +27,15 @@ $(document).ready(function() {
 
     //event ketika tombol edit di click
     $(document).on('click', '.detail', function() {
-        var id_permohonan_tjsl = $(this).data('id');
-        // alert(id_permohonan_tjsl);
+        var id_realisasi_tjsl = $(this).data('id');
+        // alert(id_realisasi_tjsl);
         $.ajax({
             type: 'post',
-            url: url+'get_permohonan_tjsl',
-            data: {id : id_permohonan_tjsl},
+            url: url+'get_realisasi_tjsl',
+            data: {id : id_realisasi_tjsl},
             dataType: 'json',
             success: function (dt) {
-                $('#modal_detail .modal-title').html('Permohonan <strong class="text-success">'  +id_permohonan_tjsl+ '</strong>'); 
+                $('#modal_detail .modal-title').html('Permohonan <strong class="text-success">'  +id_realisasi_tjsl+ '</strong>'); 
                 $('#modal_detail input[name="id"]').val(dt.id);
                 $('#modal_detail input[name="nama_pemohon"]').val(dt.nama_pj);
                 $('#modal_detail input[name="program_prioritas"]').val(dt.nama_program_prioritas);
@@ -58,13 +60,13 @@ $(document).ready(function() {
 
     //event ketika tombol PREVIEW PROPOSAL   di click
     $(document).on('click', '.preview_proposal', function() {
-        var id_permohonan_tjsl = $(this).data('id');
+        var id_realisasi_tjsl = $(this).data('id');
         var file = $(this).data('file');
-        // alert(id_permohonan_tjsl);
+        // alert(id_realisasi_tjsl);
         $.ajax({
             type: 'post',
-            url: url+'get_permohonan_tjsl',
-            data: {id : id_permohonan_tjsl},
+            url: url+'get_realisasi_tjsl',
+            data: {id : id_realisasi_tjsl},
             dataType: 'json',
             success: function (dt) {
                 $('#modal_preview_proposal .modal-title').html('Preview Proposal Permohonan Tjsl <strong class="text-success">'  +file+ '</strong>'); 
@@ -78,25 +80,25 @@ $(document).ready(function() {
 
     //event ketika tombol hapus di click
     $(document).on('click', '.delete', function() {
-        var id_permohonan_tjsl = $(this).data('id');
-        $('#id_delete').val(id_permohonan_tjsl)
+        var id_realisasi_tjsl = $(this).data('id');
+        $('#id_delete').val(id_realisasi_tjsl)
         $('#modal_confirm').modal('show');
     })
 
     //Proses simpan
-    $('#form_permohonan_tjsl').on('submit', function (e) {
+    $('#form_realisasi_tjsl').on('submit', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'post',
             url: url+'save',
-            data: $('#form_permohonan_tjsl').serialize(),
+            data: $('#form_realisasi_tjsl').serialize(),
             dataType: 'json',
             success: function (dt) {
                 $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
               });
-                $("#modal_permohonan_tjsl").modal("hide");
-                permohonan_tjsl.ajax.reload();
-                $('#form_permohonan_tjsl').trigger("reset");
+                $("#modal_realisasi_tjsl").modal("hide");
+                realisasi_tjsl.ajax.reload();
+                $('#form_realisasi_tjsl').trigger("reset");
 
             }
         });
@@ -105,16 +107,74 @@ $(document).ready(function() {
 
     //Proses hapus
     $(document).on('click', '#confirm_delete', function() {
-        var id_permohonan_tjsl = $('#id_delete').val();
+        var id_realisasi_tjsl = $('#id_delete').val();
         $.ajax({
             type: 'post',
             url: url+'delete',
-            data: {id : id_permohonan_tjsl},
+            data: {id : id_realisasi_tjsl},
             dataType: 'json',
             success: function (dt) {
                 $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
               });
-                permohonan_tjsl.ajax.reload();
+                realisasi_tjsl.ajax.reload();
+            }
+        });
+    })
+
+
+    // realisasi dll
+    //event ketika tombol realisasi di click
+    $(document).on('click', '.realisasi', function() {
+        // alert("asdadss");
+        var id_realisasi = $(this).data('id');
+        $('#id_realisasi').val(id_realisasi);
+        $('#modal_notif_realisasi').modal('show');
+    })
+    // setelahh setuju dengan notif
+    $(document).on('click', '#notif_realisasi', function() {
+        var permohonan_tjsl_id = document.getElementById("id_realisasi").value;
+        // alert(id_realisasi);
+        $('#permohonan_tjsl_id').val(permohonan_tjsl_id);
+        $('#modal_confirm_realisasi').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_realisasi', function() {
+        var permohonan_tjsl_id = $('#permohonan_tjsl_id').val();
+        var nominal_realisasi = $('#nominal_realisasi').val();
+        $.ajax({
+            type: 'post',
+            url: url+'realisasi',
+            data: {permohonan_tjsl_id : permohonan_tjsl_id, nominal_realisasi : nominal_realisasi},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               realisasi_tjsl.ajax.reload();
+
+            }
+        });
+    })
+    
+
+    //event ketika tombol batal  di click
+    $(document).on('click', '.batal', function() {
+        var id_batal = $(this).data('id');
+        $('#id_batal').val(id_batal);
+        $('#modal_confirm_batal').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_batal', function() {
+        var id_batal = $('#id_batal').val();
+        $.ajax({
+            type: 'post',
+            url: url+'batal',
+            data: {id : id_batal},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               realisasi_tjsl.ajax.reload();
+
             }
         });
     })

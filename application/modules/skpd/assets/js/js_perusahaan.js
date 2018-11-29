@@ -10,6 +10,8 @@ $(document).ready(function() {
         { sName: "nama_kec" },
         { sName: "nama_kel" },
         { sName: "alamat" },
+        { sName: "status tjsl" },
+        { sName: "status validasi siup" },
         { sName: "aksi" }
          ],
          dom: 'Bfrtip',
@@ -20,7 +22,7 @@ $(document).ready(function() {
         { targets: [0], visible: false},
         ]
     });
-
+    
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_perusahaan').trigger("reset");
@@ -44,6 +46,26 @@ $(document).ready(function() {
         });
     }
 });
+
+     //event ketika tombol PREVIEW SIUP   di click
+    $(document).on('click', '.preview_siup', function() {
+        var id_perusahaan = $(this).data('id');
+        var file = $(this).data('file');
+        // alert(id_permohonan_tjsl);
+        $.ajax({
+            type: 'post',
+            url: url+'get_perusahaan',
+            data: {id : id_perusahaan},
+            dataType: 'json',
+            success: function (dt) {
+                $('#modal_preview_siup .modal-title').html('Preview SIUP Perusahaan <strong class="text-success">'  +file+ '</strong>'); 
+                $('#modal_preview_siup .modal-file').html('<embed src="../uploads/siup/'+file+'" type="application/pdf" width="100%" height="550px"/>');
+                $('#modal_preview_siup').modal('show');
+
+            }
+        });
+        
+    })
 
 
     //event ketika tombol edit di click
@@ -109,6 +131,55 @@ $(document).ready(function() {
                 $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
               });
                 perusahaan.ajax.reload();
+            }
+        });
+    })
+
+    // validasi dll
+    //event ketika tombol validasi di click
+    $(document).on('click', '.validasi', function() {
+        // alert("asdadss");
+        var id_validasi = $(this).data('id');
+        $('#id_validasi').val(id_validasi);
+        $('#modal_confirm_validasi').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_validasi', function() {
+        var id_validasi = $('#id_validasi').val();
+        $.ajax({
+            type: 'post',
+            url: url+'validasi',
+            data: {id : id_validasi},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               perusahaan.ajax.reload();
+
+            }
+        });
+    })
+
+    //event ketika tombol batal  di click
+    $(document).on('click', '.batal', function() {
+        // alert("asdadss");
+        var id_batal = $(this).data('id');
+        $('#id_batal').val(id_batal);
+        $('#modal_confirm_batal').modal('show');
+    })
+    //Proses konfirmasi ubah tipe
+    $(document).on('click', '#confirm_batal', function() {
+        var id_batal = $('#id_batal').val();
+        $.ajax({
+            type: 'post',
+            url: url+'batal',
+            data: {id : id_batal},
+            dataType: 'json',
+            success: function (dt) {
+                $.toast({heading: dt.heading,text: dt.msg,position: 'top-right',loaderBg:'#ff6849',icon: dt.status,hideAfter: 3500, stack: 6
+              });
+               perusahaan.ajax.reload();
+
             }
         });
     })

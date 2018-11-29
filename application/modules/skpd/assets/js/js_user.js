@@ -20,7 +20,7 @@ $(document).ready(function() {
         { targets: [0], visible: false},
         ]
     });
-
+    
     //event ketika tombol tambah baru di click
     $(document).on('click', '.new', function() {
        $('#form_user').trigger("reset");

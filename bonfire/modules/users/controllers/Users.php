@@ -265,8 +265,6 @@ class Users extends Front_Controller
             // Don't redirect because validation errors will be lost.
         }
         
-        
-
         if ($this->siteSettings['auth.password_show_labels'] == 1) {
             Assets::add_js(
                 $this->load->view('users_js', array('settings' => $this->siteSettings), true),
@@ -552,6 +550,8 @@ class Users extends Front_Controller
      */
     private function saveUser($type = 'insert', $id = 0, $metaFields = array())
     {
+        
+
         $extraUniqueRule = '';
 
         if ($type != 'insert') {
@@ -601,7 +601,10 @@ class Users extends Front_Controller
             }
         }
 
+
+
         // Setting the payload for Events system.
+        // $payload = array('user_id' => $id, 'data' => $this->input->post());
         $payload = array('user_id' => $id, 'data' => $this->input->post());
 
         // Event "before_user_validation" to run before the form validation.
@@ -622,7 +625,45 @@ class Users extends Front_Controller
                 $data['active'] = 1;
             }
 
-            $id = $this->user_model->insert($data);
+              // lakukan upload file dengan memanggil function upload yang ada di GambarModel.php
+        $upload = $this->perusahaan_model->upload_file();
+        // print_r($upload);exit();
+        // save perusahaan dulu
+         if($upload['result'] == "success"){ 
+            $data_perusahaan = array(
+                'nama_perusahaan'      => $this->input->post('nama_perusahaan'),
+                'tipe_perusahaan_id'   => $this->input->post('tipe_perusahaan_id'),
+                'siup'                 => $upload['file']['file_name'],
+                'kecamatan'            => $this->input->post('selectSubDistrict'),
+                'kelurahan'            => $this->input->post('SelectSubSubDistrict'),
+                'alamat'               => $this->input->post('alamat'),
+                'ket'                  => '-',
+                'created_by'           => 1 ,
+                'created_on'           => date('Y-m-d h:i:s'),
+                );
+            // return $data_perusahaan;
+            // $this->session->set_flashdata('SUCCESSMSG', "Permohonan berhasil di ajukan, mohon tunggu konfirmasi selanjutnya melalui email dan cek secara berkala folder inbox dan spam email anda");
+            }else{
+                $this->session->set_flashdata('FAILMSG', "Terjadi kesalahan mohon ulangi proses pendaftaran. ".$upload['error']);
+            }
+            $id_perusahaan = $this->perusahaan_model->save_perusahaan($data_perusahaan);
+            if ($id_perusahaan) {
+                $data_users = array(
+                    'username'      => $this->input->post('username'),
+                    'display_name'   => $this->input->post('display_name'),
+                    'email'                 => $this->input->post('email'),
+                    'password'            => $this->input->post('password'),
+                    'role_id'            => $this->input->post('role_id'),
+                    'perusahaan_id'            => $id_perusahaan,
+                    'created_on'           => date('Y-m-d h:i:s'),
+                    );
+                } else{
+                    console.log("data user gagal disimpan");
+                    // print_r($data_users);exit();
+                }
+                        
+
+            $id = $this->user_model->insert($data_users);
             if (is_numeric($id)) {
                 $result = $id;
             }

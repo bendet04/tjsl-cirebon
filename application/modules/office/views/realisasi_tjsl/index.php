@@ -1,5 +1,5 @@
 <script type="text/javascript">
-var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
+var url = "<?php echo site_url('office/realisasi_tjsl/') ?>";
 </script>
 <!-- Start Page Content -->
 <!-- ============================================================== -->
@@ -7,18 +7,19 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Permohonan TJSL</h4>
+                <h4 class="card-title">Data Permohonan TJSL Yang Sudah Di verifikasi, Silahkan Lakukan Realisasi</h4>
                 <div class="table-responsive m-t-10">
-                    <table id="permohonan_tjsl" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="realisasi_tjsl" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                             <th>ID </th>
                             <th>Nama Pemohon</th>
                             <th>Tipe Pemohon</th>
                             <th>Email</th>
-                            <th>Program Prioritas</th>
-                            <th>Ditujukan Ke</th>
+                            <th>No. HP</th>
                             <th>Nilai RAB</th>
+                            <th>Realisasi</th>
+                            <th>Nominal Dana</th>
                             <th width="180px">Aksi</th>
                         </tr>
                         </thead>
@@ -50,7 +51,7 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
                             <tr>
                                 <th colspan="3"  style="width:47.5%;text-align:center;padding-bottom:20px">Informasi Pemohon</th>
                                 <th   style="width:5%;text-align:center;padding-bottom:20px"></th>
-                                <th colspan="3" style="width:47.5%;text-align:center;padding-bottom:20px">Informsi Perusahaan</th>
+                                <th colspan="3" style="width:47.5%;text-align:center;padding-bottom:20px">Ditujukan Ke Perusahaan</th>
                             </tr>
                             <tr> 
                                 <td style="width:15%;padding-bottom:10px;">Nama Pemohon</td>
@@ -196,7 +197,7 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
  
         <div class="modal-content">
             <div class="modal-body">
-                <p>Yakin hapus Tipe permohonan_tjsl?</p>
+                <p>Yakin hapus Tipe realisasi_tjsl?</p>
                 <input type="hidden" id="id_delete">
             </div>
             <div class="modal-footer">
@@ -228,4 +229,64 @@ var url = "<?php echo site_url('skpd/permohonan_tjsl/') ?>";
         </div>
         
     </div>
+</div>
+
+
+<!-- ////////////////// modal buat confirm realisasi -->
+<div class="modal" id="modal_notif_realisasi" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+      <div class="modal-body">
+        <center><p>Sebelum Melakukan Realisasi Terhadap Permohonan silahkan Hubungi langsung pemohon melalui kontak yang tersedia di detail informasi. terimakasih</p></center>
+        <input type="hidden" id="id_realisasi" class="form-control">
+        <br>
+        <!-- <input type="text" name="jumlah_bayar" id="jumlah_bayar" class="form-control" placeholder="jumlah bayar"> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="notif_realisasi" class="btn btn-danger"  data-dismiss="modal">Ya</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+      </div>
+    </div>
+
+  </div> 
+</div>
+
+<!-- ////////////////// modal buat confirm realisasi -->
+<div class="modal" id="modal_confirm_realisasi" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+      <div class="modal-body">
+         <input type="hidden" name="permohonan_tjsl_id" id="permohonan_tjsl_id" class="form-control">
+        <br>
+        <input type="text" name="nominal_realisasi" id="nominal_realisasi" class="form-control" placeholder="Nominal Realisasi">
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirm_realisasi" class="btn btn-danger"  data-dismiss="modal">Ya</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ////////////////// modal buat confirm validasi -->
+<div class="modal" id="modal_confirm_batal" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+
+    <div class="modal-content">
+      <div class="modal-body">
+        <center><p>Yakin Mau Batalkan Realisasinya?</p></center>
+        <input type="text" id="id_batal" class="form-control">
+        <br>
+        <!-- <input type="text" name="jumlah_bayar" id="jumlah_bayar" class="form-control" placeholder="jumlah bayar"> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirm_batal" class="btn btn-danger"  data-dismiss="modal">Ya</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+      </div>
+    </div>
+
+  </div>
 </div>

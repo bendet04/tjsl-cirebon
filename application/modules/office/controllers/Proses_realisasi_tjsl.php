@@ -1,25 +1,22 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed');
 
 
-class Perusahaan extends MY_Controller
+class proses_realisasi_tjsl extends MY_Controller
 {
    
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('perusahaan_model');
-        $this->load->model('tipe_perusahaan_model');
-        Assets::add_module_js('skpd', 'js_perusahaan.js');
+        $this->load->model('proses_realisasi_tjsl_model');
+        $this->load->model('permohonan_tjsl_model');
+        $this->load->model('skpd/perusahaan_model');
+        // $this->load->model('tipe_proses_realisasi_tjsl_model');
+        Assets::add_module_js('office', 'js_proses_realisasi_tjsl.js');
     }
 
     //---------------------------------------------URL
     public function index()
     {
-        $data=$this->tipe_perusahaan_model->get_option_select();
-        $kecamatan = $this->perusahaan_model->get_kecamatan();
-        //die (json_encode($program_prioritas));
-        Template::set('kecamatan', $kecamatan);
-        Template::set('list_tipe_perusahaan',$data);
         Template::render();
     }
 
@@ -27,18 +24,15 @@ class Perusahaan extends MY_Controller
     //---------------------------------------------AJAx
     public function listener_show_all()
     {
-        $data = $this->perusahaan_model->get_all_perusahaan();
+        $data = $this->proses_realisasi_tjsl_model->get_all_proses_realisasi_tjsl();
         echo json_encode($data);
     }
 
-    public function get_kelurahan(){
-        $id = $this->input->post('id');
-        echo $this->perusahaan_model->get_kelurahan($id);
-    }
-
-    public function get_perusahaan()
+    public function get_proses_realisasi_tjsl()
     {
-        $output = $this->perusahaan_model->get_perusahaan($this->input->post('id'));
+        $output = $this->proses_realisasi_tjsl_model->get_proses_realisasi_tjsl($this->input->post('id'));
+        // print_r($output);
+        // header('Content-Type: application/json');
         echo json_encode($output);
     }
 
@@ -47,12 +41,9 @@ class Perusahaan extends MY_Controller
     {
         $data = array(
 
-            'nama_perusahaan'      => $this->input->post('nama_perusahaan'),
-            'tipe_perusahaan_id'      => $this->input->post('tipe_perusahaan_id'),
-            'kecamatan'      => $this->input->post('selectSubDistrict'),
-            'kelurahan'      => $this->input->post('SelectSubSubDistrict'),
-            'alamat'      => $this->input->post('alamat'),
-            'ket'     => '-',
+            'nama_proses_realisasi_tjsl'      => $this->input->post('nama_proses_realisasi_tjsl'),
+            'tipe_proses_realisasi_tjsl_id'      => $this->input->post('tipe_proses_realisasi_tjsl_id'),
+            'ket'     => $this->input->post('ket'),
             'created_by' => 1 ,
             'created_on' => date('Y-m-d h:i:s'),
         );
@@ -60,11 +51,11 @@ class Perusahaan extends MY_Controller
 
         if (!$this->input->post('id')) {
             $result['type'] = 'insert';
-            $save = $this->perusahaan_model->insert($data);
+            $save = $this->proses_realisasi_tjsl_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
                 $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Perusahaan baru berhasil disimpan!';
+                $result['msg']    = 'proses_realisasi_tjsl baru berhasil disimpan!';
 
 
             }else{
@@ -74,11 +65,11 @@ class Perusahaan extends MY_Controller
             }
         }else{
             $result['type'] = 'update';
-            $save = $this->perusahaan_model->update($this->input->post('id'),$data);
+            $save = $this->proses_realisasi_tjsl_model->update($this->input->post('id'),$data);
             if ($save) {
                 $result['status'] = 'success';
                 $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Perusahaan diperbarui!';
+                $result['msg']    = 'proses_realisasi_tjsl diperbarui!';
 
 
             }else{
@@ -93,58 +84,15 @@ class Perusahaan extends MY_Controller
 
     public function delete()
     {
-        $delete = $this->perusahaan_model->delete($this->input->post('id'));
+        $delete = $this->proses_realisasi_tjsl_model->delete($this->input->post('id'));
         if ($delete) {
             $result['status'] = 'success';
             $result['heading'] = 'Selamat Proses Berhasil';
-            $result['msg']    = 'Perusahaan Berhasil dihapus!';
+            $result['msg']    = 'proses_realisasi_tjsl Berhasil dihapus!';
         }else{
             $result['status'] = 'error';
             $result['heading'] = 'Terjadi Kesalahan';
-            $result['msg']    = 'Perusahaan gagal dihapus!';
-        }
-        header('Content-Type: application/json');
-        echo  json_encode($result);
-    }
-
-
-// validasi
-    public function validasi()
-    {
-        $data = array(
-
-            'status_validasi'      => 1,
-        );
-        $result = array();
-
-        if (!$this->input->post('id')) {
-            $result['type'] = 'insert';
-            $save = $this->perusahaan_model->insert($data);
-            if ($save) {
-                $result['status'] = 'success';
-                $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Validasi baru berhasil disimpan!';
-
-
-            }else{
-                $result['status'] = 'error';
-                $result['heading'] = 'Terjadi Kesalahan';
-                $result['msg']    = $this->db->error_message();
-            }
-        }else{
-            $result['type'] = 'update';
-            $save = $this->perusahaan_model->update($this->input->post('id'),$data);
-            if ($save) {
-                $result['status'] = 'success';
-                $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Validasi perusahaan Berhasil';
-
-
-            }else{
-                $result['status'] = 'error';
-                $result['heading'] = 'Terjadi Kesalahan';
-                $result['msg']    = $this->db->error_message();
-            }
+            $result['msg']    = 'proses_realisasi_tjsl gagal dihapus!';
         }
         header('Content-Type: application/json');
         echo  json_encode($result);
@@ -154,18 +102,17 @@ class Perusahaan extends MY_Controller
     public function batal()
     {
         $data = array(
-
-            'status_validasi'      => 0,
+            'status_realisasi'      => 0,
         );
         $result = array();
 
         if (!$this->input->post('id')) {
             $result['type'] = 'insert';
-            $save = $this->perusahaan_model->insert($data);
+            $save = $this->permohonan_tjsl_model->insert($data);
             if ($save) {
                 $result['status'] = 'success';
                 $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Pembatalan Validasi baru berhasil disimpan!';
+                $result['msg']    = 'Pembatalan Permohonan TJSL Berhasil Disetujui!';
 
 
             }else{
@@ -175,11 +122,16 @@ class Perusahaan extends MY_Controller
             }
         }else{
             $result['type'] = 'update';
-            $save = $this->perusahaan_model->update($this->input->post('id'),$data);
+            $save = $this->permohonan_tjsl_model->update($this->input->post('id'),$data);
+            // update tabel ralisasi
+                $data_realisasi = array(
+                    'deleted'      => 1,
+                );
+            $del  = $this->proses_realisasi_tjsl_model->update_tbl_realisasi($this->input->post('id'),$data_realisasi,'realisasi_tjsl');
             if ($save) {
                 $result['status'] = 'success';
                 $result['heading'] = 'Selamat Proses Berhasil';
-                $result['msg']    = 'Pembatalan Validasi perusahaan Berhasil';
+                $result['msg']    = 'Pembatalan Persetujuan Permohonan TJSL Berhasil';
 
 
             }else{
@@ -192,6 +144,61 @@ class Perusahaan extends MY_Controller
         echo  json_encode($result);
     }
 
+    //--------------------------------------------SETUJUI
+    public function realisasi()
+    {
+        $data = array(
+
+            'permohonan_tjsl_id'      => $this->input->post('permohonan_tjsl_id'),
+            'nominal'                 => $this->input->post('nominal_realisasi'),
+            'ket'                     => '-',
+            'created_by'              => $this->auth->user_id(),
+            'created_on'              => date('Y-m-d h:i:s'),
+        );
+        // print_r($data);exit();
+        $result = array();
+
+        if (!$this->input->post('id')) {
+            $result['type'] = 'insert';
+            $save = $this->proses_realisasi_tjsl_model->insert($data);
+            if ($save) {
+                // $result['status'] = 'success';
+                // $result['heading'] = 'Selamat Proses Berhasil';
+                // $result['msg']    = 'Realisasi Permohonan TJSL berhasil disimpan!';
+
+                        // update status tjsl di tabel perusahaan
+                        $data_update = array(
+                            'status_realisasi'      => 1,
+                            );
+                        $update = $this->permohonan_tjsl_model->update($this->input->post('permohonan_tjsl_id'),$data_update);
+                        if ($update) {
+                        $result['status'] = 'success';
+                        $result['heading'] = 'Selamat Proses Berhasil';
+                        $result['msg']    = 'Realisasi Permohonan TJSL berhasil disimpan! dan Status TJSL Perusahaan Berhasil diperbarui!';
+                    }
+            }else{
+                $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
+                $result['msg']    = $this->db->error_message();
+            }
+        }else{
+            $result['type'] = 'update';
+            $save = $this->proses_realisasi_tjsl_model->update($this->input->post('id'),$data);
+            if ($save) {
+                $result['status'] = 'success';
+                $result['heading'] = 'Selamat Proses Berhasil';
+                $result['msg']    = 'Realisasi Permohonan TJSL diperbarui!';
+
+
+            }else{
+                $result['status'] = 'error';
+                $result['heading'] = 'Terjadi Kesalahan';
+                $result['msg']    = $this->db->error_message();
+            }
+        }
+        header('Content-Type: application/json');
+        echo  json_encode($result);
+    }
 
 }
-/* End of file perusahaan_controller.php */
+/* End of file proses_realisasi_tjsl_controller.php */
